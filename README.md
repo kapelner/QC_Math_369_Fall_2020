@@ -60,9 +60,9 @@ This class has prerequesites of basic probability (Math 241), some linear algebr
 
 ## Exams
 
-* Midterm I, September ?? (in class) 
-* Midterm II, November ?? (in class) 
-* Final, December ??
+* Midterm I, September 23 (on zoom during lecture) 
+* Midterm II, November 4 (on zoom during lecture) 
+* Final, December 16 4-6PM (on zoom?)
 
 <!--
 ## Practice Exams

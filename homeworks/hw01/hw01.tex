@@ -1,0 +1,208 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 369/650 Fall 2020 Homework \#1}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email noon Friday, September 11, 2019 \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review Math 241 concerning random variables, support, parameter space, PMF's, CDF's, bernoulli, binomial, geometric. Then read on your own about the negative binomial, convolutions and the multinomial distribution.
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for 621 and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 7 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+
+
+\problem{We will explore sampling in some detail herein. Some of the answers can be found by reading the \href{https://en.wikipedia.org/wiki/Sampling_(statistics)}{Wikipedia article}.}
+
+
+\begin{enumerate}
+
+\easysubproblem{Define \emph{population} and \emph{sample} and give the sizes of each using the notation we used in class.}\spc{3}
+
+\easysubproblem{After selecting a sample, we take a \emph{survey}. In general, what is a survey? (It is also called \emph{measurement}). How does it related to random variable models and realizations from random variables?}\spc{3}
+
+\easysubproblem{In the survey we took in class, what were the possible values of a datum for each individual?}\spc{0.5}
+
+
+\easysubproblem{For the survey we did in class, give three answers for the \qu{representative population}.}\spc{3}
+
+
+\easysubproblem{Define \emph{simple random sample} (SRS).}\spc{4}
+
+\intermediatesubproblem{Pick one of your answers from (d) and call that the population. Do you believe our class survey was an SRS? Why or why not?}\spc{2}
+
+\intermediatesubproblem{We did not define \emph{sampling frame} in class. What is it and why is it important in practice?}\spc{4}
+
+\intermediatesubproblem{What are some problems with SRS's?}\spc{3}
+
+\easysubproblem{Explain why assuming the population size is infinite gives you an $\iid$ DGP when you use an SRS to sample individuals.}\spc{3}
+
+
+\intermediatesubproblem{If we do not allow the population to be infinitely sized, is the DGP identically distributed? Would it be independent? Explain.}\spc{4}
+
+\easysubproblem{Consider a Bernoulli survey. Split a population into subgroups A, B, C, D with subpopulation sizes $N_A$, $N_B$, $N_C$, $N_D$ (which all may be different quantities) and unknown number of positives of $\chi_A$, $\chi_B$, $\chi_C$, $\chi_D$ (which all may be different quantities). How do you calculate $\theta$ using these expressions?}\spc{1}
+
+
+\intermediatesubproblem{Under what condition(s) would sampling from subpopulation B exclusively be representative of the whole population?}\spc{3}
+
+\end{enumerate}
+
+\problem{Here we will review estimates and estimators.}
+
+\begin{enumerate}
+
+\easysubproblem{Define statistic / estimate / statistical estimate.}\spc{2}
+
+\easysubproblem{What is the difference between $\thetahathat$ and $\thetahat$?}\spc{1}
+
+\easysubproblem{Is the $w$ the same function to compute both $\thetahathat$ and $\thetahat$? Yes / No}\spc{-0.5}
+
+\hardsubproblem{For any DGP $\Xoneton$ which is identically distributed where $\theta = \expe{X}$, we introduced the estimator $\thetahat = \Xbar$ that can be used to infer $\theta$. Think of another estimator that can be used to infer $\theta$.}\spc{3}
+
+\easysubproblem{For any DGP $\Xoneton$ which is identically distributed where $\theta = \expe{X}$, prove that $\thetahat = \Xbar$ is always \emph{unbiased}.}\spc{3}
+
+\intermediatesubproblem{If the DGP is $\Xoneton \iid$ with distribution unknown but there is a finite mean $\theta$ and finite variance $\sigsq$, find the risk under squared error loss for $\thetahat = \Xbar$.}\spc{3}
+
+\easysubproblem{If the DGP is $\Xoneton \iid \normnot{\theta}{\sigsq}$, show that the the risk under squared error loss for $\thetahat = \Xbar$ is the same regardless of $\theta$. Marked easy because it uses the previous question heavily.}\spc{3}
+
+
+\hardsubproblem{[MA] Consider the scenario in 1(k). Sample subpopulation A with size $n_A$, sample subpopulation B with size $n_B$, sample subpopulation C with size $n_C$ and sample subpopulation D with size $n_D$. Create an unbiased estimator for $\theta$ using these four samples (and prove that it is unbiased).}\spc{6}
+
+\easysubproblem{If the DGP is $\Xoneton \iid \bernoulli{\theta}$ and we choose the estimator $\thetahat_{\text{bad}} = 1/2$. Why is this estimator a bad choice?} \spc{3}
+
+\intermediatesubproblem{Graph the bias of $\thetahat_{\text{bad}}$ over all $\theta$. Label your axes.}\spc{4}
+
+\easysubproblem{Graph the risk of $\thetahat_{\text{bad}}$ under absolute loss. Label your axes.}\spc{4}
+
+\hardsubproblem{Compare $\thetahat_{\text{bad}}$ to $\Xbar$ using the sup risk. How much better is $\Xbar$? With $n$ getting larger does it get better?}\spc{2}
+
+\hardsubproblem{[MA] Invent a loss function that would make the risk for $\thetahat_{\text{bad}}$ better than $\Xbar$.}\spc{4}
+
+\end{enumerate}
+
+
+\problem{Here we will review theory testing from a conceptual point of view.}
+
+\begin{enumerate}
+
+\easysubproblem{What is \emph{theory testing} and how is it different from \emph{point estimation}?}\spc{3}
+
+\easysubproblem{Give an example where theory testing is important.}\spc{3}
+
+
+\easysubproblem{What are the two ways to go about convincing someone of your theory? Write them in the order we did in class since we will be referencing the \qu{first mode of convincing} and the \qu{second mode of convincing} in problems further on.}\spc{3}
+
+\easysubproblem{Which way will win you more adherents and why?}\spc{3}
+
+\easysubproblem{Regardless of how you do your convincing, why is it fundamentally impossible to prove your theory in our context of statistical inference?}\spc{3}
+
+\easysubproblem{The flavor of theory testing we traditionally do in statistical inference is called \emph{hypothesis testing}. What is a \emph{hypothesis}?}\spc{3}
+
+\easysubproblem{In the second mode of convincing someone of your theory, which is your theory you want to convince others of, the null hypothesis or the alternative hypothesis?}\spc{0}
+
+\easysubproblem{In the first mode of convincing someone of your theory, which is your theory you want to convince others of: the null hypothesis or the alternative hypothesis?}\spc{0}
+
+\easysubproblem{In order to perform a hypothesis test (in either of the two modes), do you need to assume a DPG? Yes/No.}\spc{-0.5}
+
+\easysubproblem{What are the three steps we mentioned to generate a test? Right them in the order we mentioned in class.}\spc{3}
+
+\easysubproblem{For the third step, how do you know how far is a far enough departure? You need an additional parameter $\alpha$ that you (the statistician) is responsible for supplying to the theory testing. What is its role in the test?}\spc{3}
+
+\easysubproblem{Although this parameter is fundamentally up to you, what is the scientific community's standard(s)?}\spc{1}
+
+\easysubproblem{What is the \emph{retainment region} (RET)? What is the \emph{rejection region}? Why do you think the retainment region is sometimes called the \emph{non-critical region} and the rejection region is sometimes called the \emph{critical region}?}\spc{3}
+
+\easysubproblem{What is the two possible outcomes of a hypothesis test? And which set does $\thetahathat$ belong to in each of these two possible outcomes?}\spc{2}
+
+\easysubproblem{For each of these two possible results, which error could be made? Give the name of the error and describe it conceptually.}\spc{3}
+
+
+\intermediatesubproblem{Circle the black dots next to the statement(s) which are \emph{always} true: 
+
+\begin{itemize}
+\item $\prob{\thetahat \in RET} = \alpha$
+\item $\prob{\thetahat \notin RET} = \alpha$ 
+\item $\prob{\text{Type I error}} = \alpha$
+\item $\prob{\text{Type II error}} = \alpha$ 
+\item $\prob{\text{Type I error}} + \prob{\text{Type II error}} = \alpha$ 
+\item If $H_0$ is true, you cannot make a type I error.
+\item If $H_0$ is true, you cannot make a type II error.
+\item If $H_a$ is true, you cannot make a type I error.
+\item If $H_a$ is true, you cannot make a type II error.
+\item If $\alpha = 0$, $\prob{\text{Type II error}} = 0$ 
+\item If $\alpha = 0$, $\prob{\text{Type II error}} = 1$ 
+\item If $\alpha = 0$ and $H_a$ is true, $\prob{\text{Type II error}} = 0$ 
+\item If $\alpha = 0$ and $H_a$ is true, $\prob{\text{Type II error}} = 1$
+\item If $\alpha = 1$, $\prob{\text{Type II error}} = 0$ 
+\item If $\alpha = 1$, $\prob{\text{Type II error}} = 1$ 
+\item If $\alpha = 1$ and $H_a$ is true, $\prob{\text{Type II error}} = 0$ 
+\item If $\alpha = 1$ and $H_a$ is true, $\prob{\text{Type II error}} = 1$
+\item If $\alpha$ increases, the $\prob{\text{Type II error}}$ increases.
+\item If $\alpha$ decreases, the $\prob{\text{Type II error}}$ increases.
+\item After the test is completed, there is a mathematical way to determine if we made a Type I or Type II error.
+\end{itemize}
+}
+\end{enumerate}
+
+
+\problem{Here we will do a binomial exact test. We want to demonstrate that the iphone users in our class is greater than the national average (which is 52.4\%). Recall that our data was as follows: for $n=20$, the $\thetahathat = 0.60$ where the estimator we chose was the sample proportion.}
+
+\begin{enumerate}
+
+\easysubproblem{Write down $H_a$ then $H_0$.}\spc{2}
+
+\easysubproblem{Declare your $\alpha$ level desired for this test. You do not need to justify it. It is what you are comfortable with.}\spc{0}
+
+
+\intermediatesubproblem{Because we want to show something is greater than a point value, it is called a right-tailed test. In any test, we need to find the distribution (or approximate the distribution of) the estimator under the null hypothesis. Because we will reject on the right, why is the most conservative value of $\theta$ to choose when deriving the sampling distribution to be largest value in the null hypothesis region (in this case $\theta = \theta_0 = 0.524$)?}\spc{3}
+
+\easysubproblem{Regardless of if you understood the previous question or not, what is the exact sampling distribution given the null hypothesis? Marked easy because you can copy from class.}\spc{1}
+
+\easysubproblem{Draw the PMF of the sampling distribution. Label all axes carefully and provide sufficient tick marks. Marked easy because you can copy from class.}\spc{9}
+
+\easysubproblem{Indicate the RET and the rejection region in the above illustration. Use your $\alpha$. Everyone's answer may be different!}\spc{-0.5}
+
+\intermediatesubproblem{Were you able to create a rejection region at your exact level of $\alpha$. Yes / no and why?}\spc{3}
+
+\easysubproblem{Run the test. Write your conclusion in English.}\spc{3}
+
+\end{enumerate}
+
+
+%\hardsubproblem{Consider a Bernoulli survey. Split a population into subgroups A, B, C, D with subpopulation sizes $N_A$, $N_B$, $N_C$, $N_D$.}\spc{11}
+
+
+
+\end{document}

@@ -4,7 +4,7 @@ This is the course homepage for Math 369 at Queens College, City University of N
 
 ## Lectures
 
-My lectures can be listened to as youtube tracks and lecture notes are also scanned in as PDF files contributed by students and myself.
+My lecture videos can be watched on slack and lecture notes are also scanned in as PDF files contributed by students and myself.
 
 <!--
 * Lecture 23 (video on slack) [(Jan Bazant)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec23bazant.pdf) [(Mike Digiorgio)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec23digiorgio.pdf) [(Prof)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec23kap.pdf)
@@ -53,8 +53,8 @@ This class has prerequesites of basic probability (Math 241), some linear algebr
 * Homework 5 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw05/hw05.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw05/hw05.pdf) (due 11/18)
 * Homework 4 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw04/hw04.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw04/hw04.pdf) (due 11/1)
 * Homework 3 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw03/hw03.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw03/hw03.pdf) (due 10/4)
-* Homework 2 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw02/hw02.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw02/hw02.pdf) (due 9/20)
-* Homework 1 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw01/hw01.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw01/hw01.pdf) (due 9/13)-->
+* Homework 2 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw02/hw02.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw02/hw02.pdf) (due 9/20)-->
+* Homework 1 [(download)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw01/hw01.pdf?raw=true) [(view)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/homeworks/hw01/hw01.pdf) (due 9/11)
 * Homework 0 [(syllabus, page 6)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/syllabus/syllabus.pdf?raw=true) (due 8/28)
 
 
@@ -77,10 +77,8 @@ This class has prerequesites of basic probability (Math 241), some linear algebr
 
 I *want* you to come to office hours! My office hours are:
 
-<!--
-Time: Monday and Wednesday 4:25-5:10PM
-Location: Kiely Hall 312
--->
+Time: Monday and Wednesday 4:25-4:55PM
+Location: zoom
 
 ## Grades and Class Standing
 

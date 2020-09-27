@@ -7,12 +7,12 @@
 
 
 
-\title{MATH 369/650 Fall \the\year{} Homework \#3 \inred{[INCOMPLETE]}}
+\title{MATH 369/650 Fall \the\year{} Homework \#3}
 
 \author{Professor Adam Kapelner} %STUDENTS: write your name here
 
 \iftoggle{professormode}{
-\date{Due by email noon Friday, October 2, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+\date{Due by email noon Monday, October 5, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
 }
 
 \renewcommand{\abstractname}{Instructions and Philosophy}
@@ -164,12 +164,116 @@ We will now assume that the variances are unequal i.e. $\sigsq_1 \neq \sigsq_2$ 
 
 \intermediatesubproblem{Find the p-value of our estimate by writing a statement like $\prob{T_{df} < t}$ or $\prob{T_{df} > t}$. You need to solve for $df$, $t$. Illustrate the p-val in the illustration in (ee).}\spc{3}
 
-\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{2}
+\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{4}
 
 
 
 
 \end{enumerate}
+
+
+\problem{These questions will be about the Method of Moments (MM) procedure for generating estimators/estimates.}
+
+\begin{enumerate}
+
+
+\easysubproblem{Define the $k$th moment of a rv.}\spc{0}
+
+\easysubproblem{For sample size $n$, define the of the $k$th sample moment \emph{estimator} of a rv.}\spc{1}
+
+\easysubproblem{For sample size $n$, define the of the $k$th sample moment \emph{estimate} of a rv.}\spc{1}
+
+\easysubproblem{Give an example of a DGP with two parameters.}\spc{1}
+
+\easysubproblem{For a DGP with $K=3$ parameters, write the system of equations that relates each moment to parameters. There should be 3 equations with 3 unknowns. Then write the system of equations that relates each parameter to moments. There should be another 3 equations with 3 unknowns. }\spc{2}
+
+\easysubproblem{For any iid DGP with finite mean, find an MM estimator for the mean.}\spc{2}
+
+\easysubproblem{For any iid DGP with finite variance, find an MM estimator for the variance.}\spc{5}
+
+\easysubproblem{Consider the $\Xoneton\iid \binomial{\theta_1}{\theta_2}$ DGP and derive the MM estimators $\thetahatmm_1$ and $\thetahatmm_2$ for $\theta_1$ and $\theta_2$ and express them in terms of $\Xbar$ and $\sigsqhat$.}\spc{10}
+
+\easysubproblem{Provide an example dataset (different from the one in class) where the MM estimates $\thetahathatmm_1$ and $\thetahathatmm_2$ in (h) are illegal and explain why they're illegal.}\spc{2}
+
+
+\intermediatesubproblem{Imagine you are a NYPD officer at precinct 100 in Queens. You want to estimates of  the number of crimes in your precinct and people's propensity to phone in crimes. The number of daily phone reports for two weeks are: 13, 21, 25, 21, 15, 19, 15, 15, 17, 23, 16, 15, 19, 15. Estimate the true mean number of daily total crimes in the precinct and probability of the crime being phoned in.}\spc{1}
+
+\hardsubproblem{What exactly what you need to know if you wanted to test if the true mean number of crimes daily exceeds 20? This is conceptual and should be answered with a sentence or two.}\spc{3}
+
+\intermediatesubproblem{Derive the MM estimator $\thetahatmm$ for $\theta$ in the $\Xoneton \iid \uniform{\theta}{17}$ DGP.}\spc{2}
+
+\easysubproblem{Provide an example dataset where the MM estimate $\thetahathatmm$ in the previous question is illegal and explain why it is illegal.}\spc{2}
+
+%set.seed(1984); paste0(round(runif(17,-10,20),1), collapse = ", ")
+\hardsubproblem{[MA] Derive the MM estimators $\thetahatmm_1$ and $\thetahatmm_2$ for the $\iid \uniform{\theta_1}{\theta_2}$ DGP. Then estimate $\theta_1$ and $\theta_2$ given the dataset 9.8, 3.1, 1.2, -0.1, 12.1, 15.9, -9, 3.4, 14.9, -3.6, 16.5, -9.6, 11.2, 11.6, -3.9, -9.3, -1. Remember that $\theta_1$ is defined to be $< \theta_2$!}\spc{15}
+
+\intermediatesubproblem{Consider the DGP $\iid \betanot{\theta_1}{\theta_2}$. Below are some facts about this distribution that I took from \href{https://en.wikipedia.org/wiki/Beta_distribution}{wikipedia}:
+
+\beqn
+X &\sim& \betanot{\theta_1}{\theta_2} := \underbrace{\oneover{B(\theta_1, \theta_2)} x^{\theta_1 - 1} (1-x)^{\theta_2-1}}_{f(x)} \\
+\support{X} &=& [0,1], ~~\theta_1, \theta_2 \in (0, \infty) \\
+\expe{X} &=&\int_0^{\infty} xf(x)dx = \frac{\theta_1}{\theta_1 + \theta_2}, \\
+\var{X} &=&\int_0^{\infty} (x - \expe{X})^2f(x)dx = \frac{\theta_1 \theta_2}{(\theta_1 + \theta_2)^2 (\theta_1 + \theta_2 + 1)}
+\eeqn
+
+Specify the two equations that relate moments to parameters, i.e. $\mu_1 = \alpha_1(\theta_1, \theta_2)$ and $\mu_2 = \alpha_2(\theta_1, \theta_2)$. Do not simplify.
+}\spc{4}
+
+%set.seed(1984); paste0(round(rbeta(11,5,10),3), collapse = ", ")
+\easysubproblem{You have two equations and two unknowns. It turns out after much algebra you can solve for the MM estimators in terms of $\Xbar$ and $\sigsqhat$ as:
+
+\beqn
+\thetahatmm_1 = \xbar\parens{\frac{\Xbar (1-\Xbar)}{\sigsqhat} - 1},~~\thetahatmm_2 = (1 - \Xbar) \parens{\frac{\Xbar (1-\Xbar)}{\sigsqhat} - 1}
+\eeqn
+
+Estimate $\theta_1$ and $\theta_2$ given the dataset 0.393, 0.29, 0.428, 0.117, 0.482, 0.524, 0.413, 0.226, 0.264, 0.567, 0.374.
+}\spc{6}
+
+\intermediatesubproblem{Consider the DGP $\iid \gammanot{\theta_1}{\theta_2}$. Below are some facts about this distribution that I took from \href{https://en.wikipedia.org/wiki/Beta_distribution}{wikipedia}:
+
+\beqn
+X &\sim& \gammanot{\theta_1}{\theta_2} := \underbrace{\frac{\theta_2^{\theta_1}}{\Gammaf{\theta_1}}x^{\theta_1 - 1} e^{-\theta_2 x}}_{f(x)} \\
+\support{X} &=& [0, \infty), ~~\theta_1, \theta_2 \in (0, \infty) \\
+\expe{X} &=&\int_0^{\infty} xf(x)dx = \frac{\theta_1}{\theta_2}, \\
+\var{X} &=&\int_0^{\infty} (x - \expe{X})^2f(x)dx = \frac{\theta_1}{\theta_2^2}
+\eeqn
+
+Specify the two equations that relate moments to parameters, i.e. $\mu_1 = \alpha_1(\theta_1, \theta_2)$ and $\mu_2 = \alpha_2(\theta_1, \theta_2)$ and then solve for the MM estimators $\thetahathatmm_1$ and $\thetahathatmm_2$ in terms of $\Xbar$ and $\sigsqhat$. Hint: leave expressions in terms of $\sigsqhat$.}\spc{4}
+
+%set.seed(1984); paste0(round(rgamma(7,5,10),3), collapse = ", ")
+\easysubproblem{Provide point estimates $\thetahathat_1$ and $\thetahathat_2$ for the unknown parameters $\theta_1$ and $\theta_2$ given the dataset 10.8, 8.5, 13.2, 9.1, 13.5, 11.2, 7.1 for the $\iid \gammanot{\theta_1}{\theta_2}$ DGP.}\spc{3}
+
+
+\hardsubproblem{In Math 241 you learned about expectation and variance where expectation was a measure of central tendency of a distribution and variance is a measure of dispersion around that central tendency. The next most important metric for rv's is probably its \emph{skewness} defined as
+
+\beqn
+\gamma := \skewness{X} := \expe{\tothepow{\frac{X - \expe{X}}{\sd{X}}}{3}}
+\eeqn
+
+where SD refers to standard deviation. Skewness is technically the third standardized moment since $\frac{X - \expe{X}}{\sd{X}}$ is the distribution standardized and then the third power is taken. Skewness is a metric of which tail of the distribution is longer and by how much as seen in this figure By \href{https://codeburst.io/2-important-statistics-terms-you-need-to-know-in-data-science-skewness-and-kurtosis-388fef94eeaa}{Diva Jain}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{skew.png}
+\end{figure}
+
+Since third powers are both positive and negative, skewness can be both positive and negative (and zero if the distribution is symmetric with right and left tails the same). 
+
+In class, when we were looking at the normal DGP, we derived nonparametric MM estimators $\Xbar$ and $\sigsqhat$ for the expectation and variance (nonparametric meaning that the derivation for them was for all DGP's). Show that the nonparametric MM estimator for skewness is:
+
+\beqn
+\hat{\gamma} = \sqrt{n}\frac{\sum_{i=1}^n (X_i - \Xbar)^3
+}{
+\tothepow{\sum_{i=1}^n (X_i - \Xbar)^2}{3/2}
+}
+\eeqn
+
+Hint: assume a iid DGP with density / mass function $f(\theta_1, \theta_2, \theta_3)$ where $\theta_1$ is the expectation, $\theta_2$ is the variance and $\theta_3$ is the skewness.
+}\spc{15}
+
+
+\end{enumerate}
+
 
 
 

@@ -1,0 +1,358 @@
+%\documentclass[12pt]{article}
+\documentclass[12pt,landscape]{article}
+
+
+\include{preamble}
+
+\newcommand{\instr}{\small Your answer will consist of a string (e.g. \texttt{aebgd}) where the order of the letters does not matter nor does upper / lowercase. \normalsize}
+
+\title{Math 369 / 650 Fall \the\year{} \\ Midterm Examination One}
+\author{Professor Adam Kapelner}
+
+\date{Wednesday, September 30, \the\year{}}
+
+\begin{document}
+\maketitle
+
+%\noindent Full Name \line(1,0){410}
+
+\thispagestyle{empty}
+
+\section*{Code of Academic Integrity}
+
+\footnotesize
+Since the college is an academic community, its fundamental purpose is the pursuit of knowledge. Essential to the success of this educational mission is a commitment to the principles of academic integrity. Every member of the college community is responsible for upholding the highest standards of honesty at all times. Students, as members of the community, are also responsible for adhering to the principles and spirit of the following Code of Academic Integrity.
+
+Activities that have the effect or intention of interfering with education, pursuit of knowledge, or fair evaluation of a student's performance are prohibited. Examples of such activities include but are not limited to the following definitions:
+
+\paragraph{Cheating} Using or attempting to use unauthorized assistance, material, or study aids in examinations or other academic work or preventing, or attempting to prevent, another from using authorized assistance, material, or study aids. Example: using an unauthorized cheat sheet in a quiz or exam, altering a graded exam and resubmitting it for a better grade, etc.
+\\
+
+\noindent By taking this exam, you acknowledge and agree to uphold this Code of Academic Integrity. \\
+
+%\begin{center}
+%\line(1,0){250} ~~~ \line(1,0){100}\\
+%~~~~~~~~~~~~~~~~~~~~~signature~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ date
+%\end{center}
+
+\normalsize
+
+\section*{Instructions}
+
+This exam is 75 minutes (variable time per question) and closed-book. You are allowed \textbf{one} page (front and back) of a \qu{cheat sheet}, blank scrap paper and a graphing calculator. Please read the questions carefully. No food is allowed, only drinks. %If the question reads \qu{compute,} this means the solution will be a number otherwise you can leave the answer in \textit{any} widely accepted mathematical notation which could be resolved to an exact or approximate number with the use of a computer. I advise you to skip problems marked \qu{[Extra Credit]} until you have finished the other questions on the exam, then loop back and plug in all the holes. I also advise you to use pencil. The exam is 100 points total plus extra credit. Partial credit will be granted for incomplete answers on most of the questions. \fbox{Box} in your final answers. Good luck!
+
+\pagebreak
+
+
+\problem\timedsection{8} The following are questions about testing and power.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{9} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+%\item Type I errors are only possible if $H_0$ is true
+%\item Type I errors are only possible if $H_a$ is true
+\item Type II errors are only possible if $H_0$ is true
+\item Type II errors are only possible if $H_a$ is true
+\item If you set a higher $\alpha$, the probability of making a Type II error increases (if $H_a$ is true)
+\item If you set a higher $\alpha$, the probability of making a Type II error decreases (if $H_a$ is true)
+\item As $n$ increases, the probability of making a Type I error increases (if $H_0$ is true)
+\item As $n$ increases, the probability of making a Type II error increases (if $H_a$ is true)
+%\item If the standard deviation of the sampling distribution increases, the power increases
+%\item If the standard deviation of the sampling distribution increases, the power decreases
+\item A lower $\alpha$ setting makes the p-value come out larger.
+\item A lower $\alpha$ setting makes null hypothesis rejections more \qu{statistically significant}. 
+
+
+\item Imagine you are doing a two-tailed two-sample (or two-proportion) test. Let \qu{effect size} denote $\theta_1 - \theta_2$. If you are trying to prove a large effect size, the power is higher than if you trying to prove a small effect size.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\problem\timedsection{5} The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the company known to be the best national lab rat supplier.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{7} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+\item The 30 rats is likely a representative sample of all rats if the sampling was done by the supplier via simple random sampling.
+\item The 30 rats is likely a representative sample of all brown rats if the sampling was done by the supplier via simple random sampling.
+\item The 30 rats is likely a representative sample of all Sprague-Dawley rats if the sampling was done by the supplier via simple random sampling.
+%\item The 30 rats is definitely representative of all Sprague-Dawley rats even if the sampling was done by the supplier \emph{without} simple random sampling.
+\item The 30 rats could be representative of all Sprague-Dawley rats even if the sampling was done by the supplier \emph{without} simple random sampling.
+\item The population size is $N=30$.
+\item The population size is infinite.
+\item There is no definite population, but you assume a population and consider this population to be infinite if you invoke the population sampling assumption.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{5} Same as before. \ingray{The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier.} Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem).
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{10} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+\item The data collected is commonly denoted $x_1, x_2, \ldots, x_{30}$.
+\item The data collected is commonly denoted $X_1, X_2, \ldots, X_{30}$.
+\item The DGP is most likely $\iid \normnot{\theta}{\sigsq}$ and $\theta$ measures how long the rats live.
+\item The DGP is most likely $\iid \normnot{\theta}{\sigsq}$ and $\theta$ measures the probability of heart problems.
+\item The DGP is most likely $\iid \bernoulli{\theta}$ and $\theta$ is mean life length measured in years.
+\item The DGP is most likely $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one lifetime heart problem.
+\item The DGP is most likely hypergeometric and thus the rat measurements are dependent.
+\item The DGP is most likely $\iid$ with mean 10mg.
+\item The DGP is most likely $\iid$ with mean 2yr.
+\item The researcher's intent is most likely to use the data to make inference about population or DGP parameter(s).
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\problem\timedsection{4} Same as before. \ingray{The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem).} Thus the DGP is $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one heart problem and we denote the data $x_1, x_2, \ldots, x_{30}$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{6} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+\item $\theta$ is a parameter of the DGP.
+\item $\theta$ is a realization from a rv.
+\item $\theta$ is a point estimate.
+\item The value of $\theta$ is known before the study begins and this study will only confirm it.
+\item The value of $\theta$ is unknown before the study begins.
+\item The value of $\theta$ is unknown before the study begins but will be known after the study is over as that is the purpose of this study.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{6} Same as before. \ingray{The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem).} Thus the DGP is $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one heart problem and we denote the data $x_1, x_2, \ldots, x_{30}$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{9} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+\item We can use the data to compute a point estimate $\thetahathat$ which is the best numeric guess of the value of $\theta$.
+\item The point estimate of $\theta$ is a realization from the rv denoted $X$.
+\item The point estimate of $\theta$ is a realization from the rv denoted $\thetahat$.
+\item The point estimate of $\theta$ is a realization from the sampling distribution.
+\item To compute the point estimate of $\theta$, you need to presuppose an $H_a$.
+\item A reasonable point estimate of $\theta$ is the proportion of $x_i$'s that are equal to one.
+\item A reasonable point estimate of $\theta$ is the proportion of $x_i$'s that are equal to zero.
+\item A reasonable point estimate of $\theta$ is $\xbar$.
+\item A reasonable point estimate of $\theta$ is $\hat{\sigma}^2$.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{11} Same as before. \ingray{The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem). Thus the DGP is $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one heart problem and we denote the data $x_1, x_2, \ldots, x_{30}$.} The point estimate we will use for $\theta$ is $\xbar$ and the estimator is $\Xbar$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{12} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+\item The estimator is biased.
+\item The estimator is asymptotically unbiased.
+\item The estimator is unbiased.
+\item The estimator has an MSE of zero for some values of $\theta \in (0, 1)$.
+\item The largest MSE of the estimator is $1/(4n)$.
+\item Consider $\ell(\thetahathat, \theta) = 0$ if $\thetahathat = \theta$ and 1 otherwise. This is a legal loss function.
+\item The loss function in (f) is a reasonable loss function that you can use to compare other estimators to $\Xbar$.
+\item The risk under the loss function in (f) is equal to the variance.
+\item Consider $\ell(\thetahathat, \theta) = |\thetahathat - \theta|$. This is a legal loss function.
+\item The loss function in (i) is a reasonable loss function that you can use to compare other estimators to $\Xbar$.
+\item The risk under the loss function in (i) is equal to the variance.
+\item The estimator $\thetahat = \half\parens{\max{x_1, x_2, \ldots, x_{30}} + \min{x_1, x_2, \ldots, x_{30}}}$ will have similar MSE to $\Xbar$.
+%\item The sampling distribution is normally distributed.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{4} Same as before. \ingray{\footnotesize The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem). \normalsize Thus the DGP is $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one heart problem and we denote the data $x_1, x_2, \ldots, x_{30}$. The point estimate we will use for $\theta$ is $\xbar$ and the estimator is $\Xbar$.} We wish to prove that the incidence of heart problems in the rats given magnesium \emph{is less than} 48\% (the national average for heart problems in the American adult population).
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{11} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+
+\item $H_a: \theta < 0.48$
+\item $H_a: \theta > 0.48$
+\item $H_a: \theta \neq 0.48$
+\item $H_0: \theta \leq 0.48$
+\item $H_0: \theta \geq 0.48$
+\item $H_0: \theta = 0.48$
+\item $\alpha = 5\%$ is the scientific community's standard.
+\item $\alpha = 2.5\%$ in the left tail is the scientific community's standard.
+\item A target power of $1$ is desirable and achievable.
+\item A target power of $1 - \alpha$ is desirable and achievable.
+\item A target power of $\alpha$ is desirable and achievable.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{7} Same as before. \ingray{\footnotesize The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem).  Thus the DGP is $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one heart problem and we denote the data $x_1, x_2, \ldots, x_{30}$. The point estimate we will use for $\theta$ is $\xbar$ and the estimator is $\Xbar$.\normalsize We wish to prove that the incidence of heart problems in the rats given magnesium \emph{is less than} 48\%, the national average for heart problems in the American adult population.} Thus $H_a: \theta < 0.48$ and $H_0: \theta \geq 0.48$. Upon the study's completion, the researchers compute $\thetahathat = 9/30 = 0.3$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{7} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+
+\item The binomial test is an exact test of the hypothesis of interest. \\
+
+Let $B \sim \binomial{30}{48\%}$ with PMF $p_B(x)$ and CDF $F_B(x)$. The following is an abridged table of the PMF and CDF. The values are rounded to the nearest two digits but should be treated as exact.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c|rrrrrrrrrrrrrrrr}
+$x$ & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
+$p_B(x)$ & 0 & 0.01 & 0.02 & 0.04 & 0.07 & 0.10 & 0.13 & 0.14 & 0.14 & 0.12 & 0.09 & 0.06 & 0.04 & 0.02 & 0.01 & 0 \\ 
+$F_B(x)$ & 0 & 0.01 & 0.04 & 0.08 & 0.14 & 0.24 & 0.37 & 0.52 & 0.66 & 0.78 & 0.87 & 0.93 & 0.97 & 0.99 & 1 & 1 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\item The scientific standard of $\alpha = 5\%$ is attainable in the binomial test. 
+\item A retainment region of $\braces{0, 1, \ldots, 9}$ is the the region that most closely provides the scientific standard of $\alpha = 5\%$.
+\item A rejection region of $\braces{0, 1, \ldots, 9}$ is the the region that most closely provides the scientific standard of $\alpha = 5\%$.
+\item At $\alpha = 0.04$, the test rejects the null hypothesis.
+\item At $\alpha = 0.04$, the test retains the null hypothesis.
+\item Fisher's p value is 1\%.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{5} Same as before. \ingray{\footnotesize The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The data is whether or not each rat had heart problems during their life (i.e. each rat either \emph{did have} a heart problem or \emph{did not have} a heart problem).  Thus the DGP is $\iid \bernoulli{\theta}$ and $\theta$ is the probability of at least one heart problem and we denote the data $x_1, x_2, \ldots, x_{30}$. The point estimate we will use for $\theta$ is $\xbar$ and the estimator is $\Xbar$.~\normalsize We wish to prove that the incidence of heart problems in the rats given magnesium \emph{is less than} 48\%, the national average for heart problems in the American adult population.} Thus $H_a: \theta < 0.48$ and $H_0: \theta \geq 0.48$. Upon the study's completion, the researchers compute $\thetahathat = 9/30 = 0.3$. We wish to test by using the one-proportion z test at $\alpha = 1\%$. Note that $\Phi(-2.33) = 1\%$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{8} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}
+%\item The one-proportion z test is an approximate test.
+\item  $\thetahat~|~H_0 \approxdist \normnot{0.48}{0.48 (1 - 0.48)}$
+\item  $\thetahat~|~H_0 \approxdist \normnot{0.48}{0.48 (1 - 0.48) / 30}$
+\item  $30(\thetahat~|~H_0 - 0.48) / (0.48 (1 - 0.48)) \approxdist \stdnormnot$
+\item  $\sqrt{30}(\thetahat~|~H_0 - 0.48) / \sqrt{0.48 (1 - 0.48)} \approxdist \stdnormnot$
+\item The retainment region is $\thetahathat \geq .27$  (to the nearest two digits)
+\item The retainment region is $z \geq -2.33$ on the standardized scale
+\item The test rejects the null hypothesis.
+\item The test retains the null hypothesis.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{5} Same as before. \ingray{The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection.} The researchers also were interested in mean life expectancy of the magnesium-supplemented rats. Regardless of what $\theta$ was before, we now denote mean life expectancy as $\theta$.  The lifespans in years of each rat were 1.09, 2.48, 3.08, 2.57, 1.04, 0.87, 4.18, 2.23, 3.22, 1.33, 2.49, 1.69, 3.18, 1.39, 2.52, 4.8, 2.44, 1.47, 2.64, 3.96, 3.08, 2.71, 2.8, 3.4, 3.86, 2.28, 3.65, 3.28, 1.54, 1.94. Here are two statistics: $\xbar = 2.57$ and $s = 1.00$. We wish to test if these rats lived longer than the average life expectancy of 2 years. 
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{9} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}\item $H_a: \theta < 0.48$
+\item $H_a: \theta > 2$
+\item $H_a: \theta \neq 2$
+%\item $H_0: \theta \leq 2$
+%\item $H_0: \theta \geq 2$
+%\item $H_0: \theta = 2$
+\item We can use the one sample z test to run this test without any assumptions.
+\item We can use the one sample z test to run this test by assuming an $\iid \normnot{\theta}{1^2}$ DGP.
+\item We can use the one sample z test to run this test by assuming an $ \iid \normnot{\theta}{\sigsq}$ DGP if $\sigsq$ were given to you.
+\item We can use the one sample z test to run this test by assuming an $ \iid \normnot{\theta}{\sigsq}$ DGP where $\sigsq$ is an unknown constant.
+\item We can use the one sample t test to run this test by assuming an $ \iid \normnot{\theta}{1^2}$ DGP.
+\item We can use the one sample t test to run this test by assuming an $ \iid \normnot{\theta}{\sigsq}$ DGP if $\sigsq$ were given to you.
+\item We can use the one sample t test to run this test by assuming an $\iid \normnot{\theta}{\sigsq}$ DGP where $\sigsq$ is an unknown constant.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{5} Same as before. \ingray{The rats used in most laboratories are called Sprague-Dawley rats (the \qu{lab rat}), a special breed of brown rat because they are calmer and easier to handle. 30 Sprague-Dawley rats are purchased from the rat supplier. Animal studies are frequently done on rats since rats are considered a model for humans. Consider a nutritional study that tests the effect of magnesium supplementation on cardiovascular disease. In this study, the $n=30$ rats are given 10mg of magnesium daily. Since the lifespan of rats is on average 2 years, this multi-year study waits until all the rats die until they do the data collection. The researchers also were interested in mean life expectancy of the magnesium-supplemented rats. Regardless of what $\theta$ was before, we now denote mean life expectancy as $\theta$. } The lifespans in years of each rat were 1.09, 2.48, 3.08, 2.57, 1.04, 0.87, 4.18, 2.23, 3.22, 1.33, 2.49, 1.69, 3.18, 1.39, 2.52, 4.8, 2.44, 1.47, 2.64, 3.96, 3.08, 2.71, 2.8, 3.4, 3.86, 2.28, 3.65, 3.28, 1.54, 1.94. Here are two statistics: $\xbar = 2.57$ and $s = 1.00$. We wish to test if these rats lived longer than the average life expectancy of 2 years. Hence $H_a: \theta > 2$ and $H_0: \theta \leq 2$. We will use the one-sample t-test and use $\alpha = 1\%$. Note that $F_{T_{29}}(-2.46) = 1\%$.
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{6} 
+
+\begin{enumerate}[(a)]
+%\setcounter{enumi}{3}\item $H_a: \theta < 0.48$
+\item The rejection region is $\thetahathat > 4.46$ (to the nearest two digits)
+\item The rejection region is $\thetahathat > 5.03$ (to the nearest two digits)
+\item The rejection region is $\thetahathat > 2.45$ (to the nearest two digits)
+\item The rejection region is $\thetahathat > 3.02$ (to the nearest two digits)
+%\item You can conclude from this test that Sprague-Dawley rats given daily supplements of 10mg of magnesium live longer than the average rat.
+\item You can conclude from this test that the power in this test is very high (i.e. near 1).
+\item The one-sample t-test is an approximate test.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+%xbar1 = 2.57
+%s1 = 1
+%n1 = 30
+%n2 = 6
+%
+%set.seed(1984)
+%x = rnorm(n2, 2.7, 1)
+%paste0(round(x, 2), collapse = ", ")
+%
+%xbar2 = mean(x)
+%s2 = sd(x)
+%
+%
+%
+%ssqpooled = ((n1-1) * s1^2 + (n2-1) * s2^2) / (n1+n2-2)
+%naive_pooled_ssq = s1^2 / n1 + s2^2 / n2
+%
+%round(ssqpooled, 2)
+%round(sqrt(ssqpooled), 2)
+%n_factor = sqrt(1/n1+1/n2)
+%round(sqrt(ssqpooled) * n_factor, 2) #*************************************
+%round(sqrt(ssqpooled) * n_factor^2, 2)
+%round(naive_pooled_ssq, 2)
+%round(sqrt(naive_pooled_ssq), 2)
+%round(sqrt(naive_pooled_ssq) * n_factor, 2)
+%
+%#now if they used just sigma = 1
+%round(sqrt(1) * n_factor, 2)
+%
+%#satterthwaite df
+%sdf = naive_pooled_ssq^2 / (s1^4 / (n1^2 * (n1 - 1)) + s2^4 / (n2^2 * (n2 - 1)))
+%sdf
+%n1+n2-2
+%qt(.01, n1+n2-2)
+%qt(.01, sdf)
+
+\problem\timedsection{10} Same as before. [But no space to put the old text] Researchers repeated this study with a higher dose of magnesium on 6 rats. The lifespan of these \qu{higher} dose rats where 3.11, 2.38, 3.34, 0.85, 3.65, 3.89. Here are their statistics: $\xbar = 2.87$ and $s = 1.11$. The statistics for the previous sample of rats (who received the 10mg dose which we now called the \qu{lower} dose) was $n=30$, $\xbar = 2.57$ and $s = 1.00$. We want to test if there's any difference in rat lifespan between the two doses. We will assume the same DGP (iid normal) for the higher dose group (but with a different mean than the lower dose group). We will also assume the same variance for both groups. Note that $F_{T_{34}}(-2.44) = 1\%$ and $F_{T_{6.70}}(-3.04) = 1\%$.
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{11} 
+
+\begin{enumerate}[(a)]
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 1.04 (to the nearest two digits)
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 1.02 (to the nearest two digits)
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 0.46 (to the nearest two digits)
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 0.20 (to the nearest two digits)
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 0.24 (to the nearest two digits)
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 0.49 (to the nearest two digits)
+\item The standard error of the sampling distribution of $\thetahat_{\text{higher}} - \thetahat_{\text{lower}}$ is 0.22 (to the nearest two digits)
+
+\item You were given sufficient information to compute an exact rejection region
+\item You were given sufficient information to compute a retainment region at $\alpha = 1\%$
+\item You were given sufficient information to compute a retainment region at $\alpha = 2\%$
+\item You were given sufficient information to compute a retainment region at $\alpha = 5\%$
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,6 +1,7 @@
 pacman::p_load(ggplot2)
 
 Nsim = 1000
+nsim = 1
 
 n = 17
 theta = 369

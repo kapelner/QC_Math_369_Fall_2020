@@ -215,6 +215,14 @@ This exam is 75 minutes (variable time per question) and closed-book. You are al
 
 Let $B \sim \binomial{30}{48\%}$ with PMF $p_B(x)$ and CDF $F_B(x)$. The following is an abridged table of the PMF and CDF. The values are rounded to the nearest two digits but should be treated as exact.
 
+%xs = 7:22
+%pacman::p_load(xtable)
+%xtable(
+%rbind(
+%  xs,
+%  round(dbinom(xs, 30, .48),2),
+%  round(pbinom(xs, 30, .48),2)
+%))
 \begin{table}[ht]
 \centering
 \begin{tabular}{c|rrrrrrrrrrrrrrrr}

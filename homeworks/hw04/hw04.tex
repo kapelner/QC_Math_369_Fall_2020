@@ -1,0 +1,376 @@
+\documentclass[12pt]{article}
+
+\include{preamble}
+
+\newtoggle{professormode}
+\toggletrue{professormode} %STUDENTS: DELETE or COMMENT this line
+
+
+
+\title{MATH 369/650 Fall \the\year{} Homework \#4}
+
+\author{Professor Adam Kapelner} %STUDENTS: write your name here
+
+\iftoggle{professormode}{
+\date{Due by email 11:59PM Saturday, October 24, \the\year{} \\ \vspace{0.5cm} \small (this document last updated \today ~at \currenttime)}
+}
+
+\renewcommand{\abstractname}{Instructions and Philosophy}
+
+\begin{document}
+\maketitle
+
+\iftoggle{professormode}{
+\begin{abstract}
+The path to success in this class is to do many problems. Unlike other courses, exclusively doing reading(s) will not help. Coming to lecture is akin to watching workout videos; thinking about and solving problems on your own is the actual ``working out.''  Feel free to \qu{work out} with others; \textbf{I want you to work on this in groups.}
+
+Reading is still \textit{required}. For this homework set, review Math 241 concerning the normal distribution. Then read about the class topics (e.g. CRLB, Fisher Information, asymptotically normal estimators, etc) in the two recommended textbooks and online.
+
+The problems below are color coded: \ingreen{green} problems are considered \textit{easy} and marked \qu{[easy]}; \inorange{yellow} problems are considered \textit{intermediate} and marked \qu{[harder]}, \inred{red} problems are considered \textit{difficult} and marked \qu{[difficult]} and \inpurple{purple} problems are extra credit. The \textit{easy} problems are intended to be ``giveaways'' if you went to class. Do as much as you can of the others; I expect you to at least attempt the \textit{difficult} problems. \qu{[MA]} are for those registered for the 600-level class and extra credit otherwise.
+
+This homework is worth 100 points but the point distribution will not be determined until after the due date. See syllabus for the policy on late homework.
+
+Up to 7 points are given as a bonus if the homework is typed using \LaTeX. Links to instaling \LaTeX~and program for compiling \LaTeX~is found on the syllabus. You are encouraged to use \url{overleaf.com}. If you are handing in homework this way, read the comments in the code; there are two lines to comment out and you should replace my name with yours and write your section. The easiest way to use overleaf is to copy the raw text from hwxx.tex and preamble.tex into two new overleaf tex files with the same name. If you are asked to make drawings, you can take a picture of your handwritten drawing and insert them as figures or leave space using the \qu{$\backslash$vspace} command and draw them in after printing or attach them stapled.
+
+The document is available with spaces for you to write your answers. If not using \LaTeX, print this document and write in your answers. I do not accept homeworks which are \textit{not} on this printout. Keep this first page printed for your records.
+
+\end{abstract}
+
+\thispagestyle{empty}
+\vspace{1cm}
+NAME: \line(1,0){380}
+\clearpage
+}
+
+
+\problem{We will prove the CRLB and some other facts here.}
+
+
+\begin{enumerate}
+
+
+\easysubproblem{Prove the CRLB from scratch. Justify each step.}\spc{22}
+
+\easysubproblem{State Thm 5.5.4 p233 C\&B.}\spc{1}
+
+\easysubproblem{Use Thm 5.5.4 to prove that if $X \convp c$ then $\frac{X}{c} \convp 1$ and $\frac{c}{X} \convp 1$.}\spc{1}
+
+\easysubproblem{State Slutsky's Theorem.}\spc{1}
+
+\hardsubproblem{Assume an iid DGP with mean $\theta$ and variance $\sigsq$. Recall the CLT,
+
+\beqn
+\frac{\Xbar - \theta}{\frac{\sigma}{\sqrt{n}}} \convd \stdnormnot.
+\eeqn
+
+Let $S^2$ be the estimator for $\sigsq$ we discussed in class. In a more advanced probability class, you can show that $S \convp \sigma$. Use Thm 5.5.4 and Slutsky's Theorem to show that the usual t statistic is asymptotically normal i.e. prove that
+
+\beqn
+\frac{\Xbar - \theta}{\frac{S}{\sqrt{n}}} \convd \stdnormnot
+\eeqn
+
+Hint: it is two steps. Don't overthink it!}\spc{10}
+
+\easysubproblem{Prove that the MLE is asymptotically normal and asymptotically efficient from scratch. Justify each step.}\spc{22}
+
+
+\hardsubproblem{Prove that the score function is asymptotically normal using the CLT. The facts should be found in the previous problem which you got from the notes.}\spc{6}
+
+
+\hardsubproblem{Prove that Fisher Information which is defined as $I(\theta) := \expe{\ell'(\theta; X)}$ is equal to $\expe{\ell''(\theta; X)}$. If you make any assumptions proving this, indicate it so. This is not easy. There will be lots of hints on slack given.}\spc{16}
+
+\end{enumerate}
+
+
+\problem{We will get practice finding MLE's, their asymptotic distributions and proving estimators are UMVUE's.}
+
+
+\begin{enumerate}
+
+
+\easysubproblem{Consider the DGP $\Xoneton \iid \bernoulli{\theta}$.  Find $\thetahatmle$.}\spc{6}
+
+
+\easysubproblem{Prove that the MLE is the UMVUE for $\theta$.}\spc{6}
+
+
+\easysubproblem{Write the approximate distribution of the MLE.}\spc{10}
+
+
+%\easysubproblem{Consider the DGP $\Xoneton \iid \normnot{\theta_1}{\theta_2}$. Find $\thetahatmle_1$.}\spc{5}
+%
+%
+%\easysubproblem{Prove that the MLE is the UMVUE for $\theta_1$.}\spc{6}
+%
+%\easysubproblem{Write the approximate distribution of the MLE.}\spc{1}
+
+\intermediatesubproblem{Consider the DGP $\Xoneton \iid \normnot{0}{\theta}$. Find $\thetahatmle$.}\spc{6}
+
+\intermediatesubproblem{Prove that the MLE is the UMVUE for $\theta$.}\spc{6}
+
+\easysubproblem{Write the approximate distribution of the MLE.}\spc{1}
+
+
+\intermediatesubproblem{Consider the DGP $\Xoneton \iid \poisson{\theta} := \theta^x e^{-\theta} / x!$ where $\expe{X} = \theta$ and $\var{X} = \theta$. Find $\thetahatmle$.}\spc{6}
+
+\easysubproblem{Prove that the MLE is the UMVUE for $\theta$.}\spc{6}
+
+\easysubproblem{Write the approximate distribution of the MLE.}\spc{2}
+
+
+\hardsubproblem{Consider the DGP $\Xoneton \iid \lognormnot{\theta}{1} := \oneover{x\sqrt{2\pi}} e^{-\half \squared{\natlog{x} - \theta}}$ and find $\thetahatmle$.}\spc{8}
+
+\intermediatesubproblem{Write the approximate distribution of the MLE.}\spc{8}
+
+
+\hardsubproblem{Consider the DGP $\Xoneton \iid \text{Gumbel}(\theta, 1) := e^{-(x - \theta) - e^{-(x - \theta)}}$ and find $\thetahatmle$.}\spc{9}
+
+\hardsubproblem{Write the approximate distribution of the MLE. You will need the following fact from Math 368 to find the answer: $\expe{e^{-X}} = e^{-\theta}$.}\spc{11}
+
+
+\hardsubproblem{Consider the DGP $\Xoneton \iid \text{Logistic}(\theta, 1) := e^{-(x - \theta)} / (1 + e^{-(x - \theta)})$. Find an expression for when solved will find $\thetahatmle$. There is no closed form expression that exists.}\spc{9}
+
+\intermediatesubproblem{In a few sentences, explain why it would be difficult to provide the approximate distribution of the MLE.}\spc{6}
+\end{enumerate}
+
+
+
+
+\end{document}
+
+\problem{In lecture 6-7, we did two-sided two-sample z and t tests. We will repeat these tests now but do them one sided. For extra practice, I will make them left-sided. To do this, I will switch the indexing of the two populations. The female population is now considered population \#1 and the male population is now considered population \#2. We assume the DGP for female height measurements is $\iid \normnot{\theta_1}{\sigsq_1}$ independent of the DGP for male height measurements assumed to be $\iid \normnot{\theta_2}{\sigsq_2}$. 
+
+The sample sizes, point estimates for the mean and point estimates for the variance computed from the in-class student survey are:
+
+%
+%\begin{table}
+%\centering
+%\begin{tabular}{c|cc}
+%& Sample \#1 (Female) & Sample \#2 (Male) \\
+%$n$ & 6 & 10 \\
+%$\xbar
+\beqn
+n_1 &=& 6 \\
+\xbar_1 &=& 62.3 \\
+s^2_1 &=& 2.25^2 \\
+n_2 &=& 10 \\
+\xbar_2 &=& 70.5 \\
+s^2_2 &=& 2.07^2
+\eeqn
+
+
+
+The theory we wish to prove is that females are shorter than males. We will do so via hypothesis testing at size $\alpha = 5\%$. We will test this under many different assumption scenarios about the variances in the DGP. The results should be approximately the same.}
+
+\begin{enumerate}
+
+\easysubproblem{Write the alternative and null hypotheses. Remember that $\theta_1$ and $\theta_2$ are now switched from class. We will use these hypotheses for the four scenarios in the rest of the problem.}\spc{1}
+
+%%%%%%%%%%%%%%%%%%
+\line(1,0){440} \\
+We will first assume that the variances are known to be $\sigsq_1 = 3.5^2$ and $\sigsq_2 = 4^2$.
+
+\easysubproblem{Write the exact or approximate distribution of the standardized estimator under the null hypothesis which we denote $(\thetahat_1 - \thetahat_2) / SE~|~H_0$. You should first write the SE as a mathematical expression. Then compute SE to three decimal places. The answer is in lecture 6.}\spc{4}
+
+\easysubproblem{Illustrate the distribution from the previous problem. Label the x-axis and provide tick marks on the x-axis. Leave lots of room on the left side of the x-axis away from the bulk of the sampling distribution!}\spc{8}
+
+
+\intermediatesubproblem{Will this test be an \emph{exact test} or instead an \emph{approximate test}? Explain.}\spc{3}
+
+\intermediatesubproblem{Compute the retainment region and rejection region (remember $\Theta = \reals$) and denote these two regions in your illustration in (c). To compute these regions, I'll provide you with the following fact: $\Phi(-1.645) = 5\%$ where $\Phi$ is the CDF of the standard normal rv. (These are the kind of facts that will be provided to you on exams).}\spc{2}
+
+
+\easysubproblem{Why is this test named the \emph{left-sided two-sample z test of unequal variances}?}\spc{3}
+
+\easysubproblem{Run the test and write your conclusion using an English sentence.}\spc{1}
+
+\easysubproblem{What type of error could you have made?}\spc{0}
+
+\intermediatesubproblem{Find the p-value of our estimate as a function of $\Phi$. Illustrate the p-value in the illustration in (c).}\spc{3}
+
+\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{2}
+
+\hardsubproblem{[MA]  In the general case of  $\theta_{\Delta} := \theta_1 - \theta_2$, $\sigsq_1$, $\sigsq_2$, $n_1$, $n_2$ and $\alpha$, find the power function $POW(\theta_{\Delta}, \sigsq_1, \sigsq_2, n_1, n_2, \alpha)$. }\spc{10}
+
+
+%%%%%%%%%%%%%%%%%%
+\line(1,0){440} \\
+We will now assume that the variances are equal and  known to be $\sigsq_1 = \sigsq_2 = \sigsq = 3.76^2$.
+
+\easysubproblem{Write the exact or approximate distribution of the standardized estimator under the null hypothesis which we denote $(\thetahat_1 - \thetahat_2) / SE~|~H_0$. You should first write the SE as a mathematical expression. Then compute SE to three decimal places. The answer is in lecture 6.}\spc{3}
+
+\easysubproblem{Illustrate the distribution from the previous problem. Label the x-axis and provide tick marks on the x-axis. Leave lots of room on the left side of the x-axis away from the bulk of the sampling distribution!}\spc{9}
+
+\intermediatesubproblem{Will this test be an \emph{exact test} or instead an \emph{approximate test}? Explain.}\spc{3}
+
+\intermediatesubproblem{Compute the retainment region and rejection region (remember $\Theta = \reals$) and denote these two regions in your illustration in (m). To compute these regions, I'll provide you with the following fact: $\Phi(-1.645) = 5\%$ where $\Phi$ is the CDF of the standard normal rv. (These are the kind of facts that will be provided to you on exams).}\spc{3}
+
+
+\easysubproblem{Why is this test named the \emph{left-sided two-sample z test of equal variances}?}\spc{3}
+
+\easysubproblem{Run the test and write your conclusion using an English sentence.}\spc{1}
+
+\easysubproblem{What type of error could you have made?}\spc{0}
+
+\intermediatesubproblem{Find the p-value of our estimate as a function of $\Phi$. Illustrate the p-value in the illustration in (m).}\spc{3}
+
+\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{2}
+
+%%%%%%%%%%%%%%%%%%
+\line(1,0){440} \\
+We will now assume that the variances are equal i.e. $\sigsq_1 = \sigsq_2 = \sigsq$ but its value is \emph{unknown}.
+
+\easysubproblem{Write the exact or approximate distribution of the standardized estimator under the null hypothesis which we denote $(\thetahat_1 - \thetahat_2) / SE~|~H_0$. You should first write the SE as a mathematical expression. Then compute SE to three decimal places. The answer is in lecture 6.}\spc{3}
+
+\easysubproblem{Illustrate the distribution from the previous problem. Label the x-axis and provide tick marks on the x-axis. Leave lots of room on the left side of the x-axis away from the bulk of the sampling distribution!}\spc{9}
+
+\intermediatesubproblem{Will this test be an \emph{exact test} or instead an \emph{approximate test}? Explain.}\spc{3}
+
+\intermediatesubproblem{Compute the retainment region and rejection region (remember $\Theta = \reals$) and denote these two regions in your illustration in (v). To compute these regions, I'll provide you with the following fact: $\prob{T_{14} \leq -1.76} = 5\%$ where $T_{14}$ denotes a standard Student's t rv with 14 degrees of freedom. (These are the kind of facts that will be provided to you on exams).}\spc{3}
+
+
+\easysubproblem{Why is this test named the \emph{left-sided two-sample t test of equal variances}?}\spc{3}
+
+\easysubproblem{Run the test and write your conclusion using an English sentence.}\spc{1}
+
+\easysubproblem{What type of error could you have made?}\spc{0}
+
+\intermediatesubproblem{Find the p-value of our estimate by writing a statement like $\prob{T_{df} < t}$ or $\prob{T_{df} > t}$. You need to solve for $df$, $t$. Illustrate the p-val in the illustration in (v).}\spc{3}
+
+\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{2}
+
+%%%%%%%%%%%%%%%%%%
+\line(1,0){440} \\
+We will now assume that the variances are unequal i.e. $\sigsq_1 \neq \sigsq_2$ and both values are \emph{unknown}. This is known as the Behrens-Fisher problem.
+
+\easysubproblem{Write the exact or approximate distribution of the standardized estimator under the null hypothesis which we denote $(\thetahat_1 - \thetahat_2) / SE~|~H_0$. You should first write the SE as a mathematical expression. Then compute SE to three decimal places. The answer is in lecture 7.}\spc{3}
+
+\easysubproblem{Illustrate the distribution from the previous problem. Label the x-axis and provide tick marks on the x-axis. Leave lots of room on the left side of the x-axis away from the bulk of the sampling distribution!}\spc{9}
+
+\intermediatesubproblem{Will this test be an \emph{exact test} or instead an \emph{approximate test}? Explain. (Hint: the exact distribution was solved in 2018 and can be found in \href{https://www.academia.edu/37294681/ON_THE_SOLUTION_OF_A_GENERALIZED_BEHRENS_FISHER_PROBLEM}{this paper}).}\spc{3}
+
+\intermediatesubproblem{Compute the retainment region and rejection region (remember $\Theta = \reals$) and denote these two regions in your illustration in (ee). To compute these regions, I'll provide you with the following fact: $\prob{T_{9.94} \leq -1.81} = 5\%$ where $T_{9.94}$ denotes a standard Student's t rv with 9.94 degrees of freedom. (These are the kind of facts that will be provided to you on exams).}\spc{2}
+
+
+\easysubproblem{Why is this test named the \emph{left-sided two-sample t test of unequal variances}?}\spc{3}
+
+\easysubproblem{Run the test and write your conclusion using an English sentence.}\spc{1}
+
+\easysubproblem{What type of error could you have made?}\spc{0}
+
+\intermediatesubproblem{Find the p-value of our estimate by writing a statement like $\prob{T_{df} < t}$ or $\prob{T_{df} > t}$. You need to solve for $df$, $t$. Illustrate the p-val in the illustration in (ee).}\spc{3}
+
+\easysubproblem{Without computing the p-value explicitly, would it be above or below $\alpha = 5\%$? Is the estimate \emph{statistically significant}?}\spc{4}
+
+
+
+
+\end{enumerate}
+
+
+\problem{These questions will be about the Method of Moments (MM) procedure for generating estimators/estimates.}
+
+\begin{enumerate}
+
+
+\easysubproblem{Define the $k$th moment of a rv.}\spc{0}
+
+\easysubproblem{For sample size $n$, define the of the $k$th sample moment \emph{estimator} of a rv.}\spc{1}
+
+\easysubproblem{For sample size $n$, define the of the $k$th sample moment \emph{estimate} of a rv.}\spc{1}
+
+\easysubproblem{Give an example of a DGP with two parameters.}\spc{1}
+
+\easysubproblem{For a DGP with $K=3$ parameters, write the system of equations that relates each moment to parameters. There should be 3 equations with 3 unknowns. Then write the system of equations that relates each parameter to moments. There should be another 3 equations with 3 unknowns. }\spc{2}
+
+\easysubproblem{For any iid DGP with finite mean, find an MM estimator for the mean.}\spc{2}
+
+\easysubproblem{For any iid DGP with finite variance, find an MM estimator for the variance.}\spc{5}
+
+\easysubproblem{Consider the $\Xoneton\iid \binomial{\theta_1}{\theta_2}$ DGP and derive the MM estimators $\thetahatmm_1$ and $\thetahatmm_2$ for $\theta_1$ and $\theta_2$ and express them in terms of $\Xbar$ and $\sigsqhat$.}\spc{10}
+
+\easysubproblem{Provide an example dataset (different from the one in class) where the MM estimates $\thetahathatmm_1$ and $\thetahathatmm_2$ in (h) are illegal and explain why they're illegal.}\spc{2}
+
+
+\intermediatesubproblem{Imagine you are a NYPD officer at precinct 100 in Queens. You want to estimates of  the number of crimes in your precinct and people's propensity to phone in crimes. The number of daily phone reports for two weeks are: 13, 21, 25, 21, 15, 19, 15, 15, 17, 23, 16, 15, 19, 15. Estimate the true mean number of daily total crimes in the precinct and probability of the crime being phoned in.}\spc{1}
+
+\hardsubproblem{What exactly what you need to know if you wanted to test if the true mean number of crimes daily exceeds 20? This is conceptual and should be answered with a sentence or two.}\spc{3}
+
+\intermediatesubproblem{Derive the MM estimator $\thetahatmm$ for $\theta$ in the $\Xoneton \iid \uniform{\theta}{17}$ DGP.}\spc{2}
+
+\easysubproblem{Provide an example dataset where the MM estimate $\thetahathatmm$ in the previous question is illegal and explain why it is illegal.}\spc{2}
+
+%set.seed(1984); paste0(round(runif(17,-10,20),1), collapse = ", ")
+\hardsubproblem{[MA] Derive the MM estimators $\thetahatmm_1$ and $\thetahatmm_2$ for the $\iid \uniform{\theta_1}{\theta_2}$ DGP. Then estimate $\theta_1$ and $\theta_2$ given the dataset 9.8, 3.1, 1.2, -0.1, 12.1, 15.9, -9, 3.4, 14.9, -3.6, 16.5, -9.6, 11.2, 11.6, -3.9, -9.3, -1. Remember that $\theta_1$ is defined to be $< \theta_2$!}\spc{15}
+
+\intermediatesubproblem{Consider the DGP $\iid \betanot{\theta_1}{\theta_2}$. Below are some facts about this distribution that I took from \href{https://en.wikipedia.org/wiki/Beta_distribution}{wikipedia}:
+
+\beqn
+X &\sim& \betanot{\theta_1}{\theta_2} := \underbrace{\oneover{B(\theta_1, \theta_2)} x^{\theta_1 - 1} (1-x)^{\theta_2-1}}_{f(x)} \\
+\support{X} &=& [0,1], ~~\theta_1, \theta_2 \in (0, \infty) \\
+\expe{X} &=&\int_0^{\infty} xf(x)dx = \frac{\theta_1}{\theta_1 + \theta_2}, \\
+\var{X} &=&\int_0^{\infty} (x - \expe{X})^2f(x)dx = \frac{\theta_1 \theta_2}{(\theta_1 + \theta_2)^2 (\theta_1 + \theta_2 + 1)}
+\eeqn
+
+Specify the two equations that relate moments to parameters, i.e. $\mu_1 = \alpha_1(\theta_1, \theta_2)$ and $\mu_2 = \alpha_2(\theta_1, \theta_2)$. Do not simplify.
+}\spc{4}
+
+%set.seed(1984); paste0(round(rbeta(11,5,10),3), collapse = ", ")
+\easysubproblem{You have two equations and two unknowns. It turns out after much algebra you can solve for the MM estimators in terms of $\Xbar$ and $\sigsqhat$ as:
+
+\beqn
+\thetahatmm_1 = \xbar\parens{\frac{\Xbar (1-\Xbar)}{\sigsqhat} - 1},~~\thetahatmm_2 = (1 - \Xbar) \parens{\frac{\Xbar (1-\Xbar)}{\sigsqhat} - 1}
+\eeqn
+
+Estimate $\theta_1$ and $\theta_2$ given the dataset 0.393, 0.29, 0.428, 0.117, 0.482, 0.524, 0.413, 0.226, 0.264, 0.567, 0.374.
+}\spc{6}
+
+\intermediatesubproblem{Consider the DGP $\iid \gammanot{\theta_1}{\theta_2}$. Below are some facts about this distribution that I took from \href{https://en.wikipedia.org/wiki/Beta_distribution}{wikipedia}:
+
+\beqn
+X &\sim& \gammanot{\theta_1}{\theta_2} := \underbrace{\frac{\theta_2^{\theta_1}}{\Gammaf{\theta_1}}x^{\theta_1 - 1} e^{-\theta_2 x}}_{f(x)} \\
+\support{X} &=& [0, \infty), ~~\theta_1, \theta_2 \in (0, \infty) \\
+\expe{X} &=&\int_0^{\infty} xf(x)dx = \frac{\theta_1}{\theta_2}, \\
+\var{X} &=&\int_0^{\infty} (x - \expe{X})^2f(x)dx = \frac{\theta_1}{\theta_2^2}
+\eeqn
+
+Specify the two equations that relate moments to parameters, i.e. $\mu_1 = \alpha_1(\theta_1, \theta_2)$ and $\mu_2 = \alpha_2(\theta_1, \theta_2)$ and then solve for the MM estimators $\thetahathatmm_1$ and $\thetahathatmm_2$ in terms of $\Xbar$ and $\sigsqhat$. Hint: leave expressions in terms of $\sigsqhat$.}\spc{4}
+
+%set.seed(1984); paste0(round(rgamma(7,5,10),3), collapse = ", ")
+\easysubproblem{Provide point estimates $\thetahathat_1$ and $\thetahathat_2$ for the unknown parameters $\theta_1$ and $\theta_2$ given the dataset 10.8, 8.5, 13.2, 9.1, 13.5, 11.2, 7.1 for the $\iid \gammanot{\theta_1}{\theta_2}$ DGP.}\spc{3}
+
+
+\hardsubproblem{In Math 241 you learned about expectation and variance where expectation was a measure of central tendency of a distribution and variance is a measure of dispersion around that central tendency. The next most important metric for rv's is probably its \emph{skewness} defined as
+
+\beqn
+\gamma := \skewness{X} := \expe{\tothepow{\frac{X - \expe{X}}{\sd{X}}}{3}}
+\eeqn
+
+where SD refers to standard deviation. Skewness is technically the third standardized moment since $\frac{X - \expe{X}}{\sd{X}}$ is the distribution standardized and then the third power is taken. Skewness is a metric of which tail of the distribution is longer and by how much as seen in this figure By \href{https://codeburst.io/2-important-statistics-terms-you-need-to-know-in-data-science-skewness-and-kurtosis-388fef94eeaa}{Diva Jain}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{skew.png}
+\end{figure}
+
+Since third powers are both positive and negative, skewness can be both positive and negative (and zero if the distribution is symmetric with right and left tails the same). 
+
+In class, when we were looking at the normal DGP, we derived nonparametric MM estimators $\Xbar$ and $\sigsqhat$ for the expectation and variance (nonparametric meaning that the derivation for them was for all DGP's). Show that the nonparametric MM estimator for skewness is:
+
+\beqn
+\hat{\gamma} = \sqrt{n}\frac{\sum_{i=1}^n (X_i - \Xbar)^3
+}{
+\tothepow{\sum_{i=1}^n (X_i - \Xbar)^2}{3/2}
+}
+\eeqn
+
+Hint: assume a iid DGP with density / mass function $f(\theta_1, \theta_2, \theta_3)$ where $\theta_1$ is the expectation, $\theta_2$ is the variance and $\theta_3$ is the skewness.
+}\spc{15}
+
+
+\end{enumerate}
+
+
+
+
+\end{document}

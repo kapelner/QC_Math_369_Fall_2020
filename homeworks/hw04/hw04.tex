@@ -106,7 +106,7 @@ Hint: it is two steps. Don't overthink it!}\spc{10}
 
 \intermediatesubproblem{Consider the DGP $\Xoneton \iid \normnot{0}{\theta}$. Find $\thetahatmle$.}\spc{6}
 
-\intermediatesubproblem{Prove that the MLE is the UMVUE for $\theta$.}\spc{6}
+\intermediatesubproblem{Prove that the MLE is the UMVUE for $\theta$. You need to use the fact that $\expe{X^4} = 3\theta^2$ for this DGP, i.e. when $X \sim \normnot{0}{\theta}$.}\spc{6}
 
 \easysubproblem{Write the approximate distribution of the MLE.}\spc{1}
 
@@ -124,6 +124,20 @@ Hint: it is two steps. Don't overthink it!}\spc{10}
 
 
 \hardsubproblem{Consider the DGP $\Xoneton \iid \text{Gumbel}(\theta, 1) := e^{-(x - \theta) - e^{-(x - \theta)}}$ and find $\thetahatmle$.}\spc{9}
+
+%\beqn
+%\mathcal{L} &=&  e^{-(x - \theta) - e^{-(x - \theta)}} = e^{-x} e^{\theta} e^{-e^{-x} e^{\theta}} \\
+%\ell &=& -x+\theta - e^{-x} e^{\theta} \\
+%\ell' &=& 1 - e^{-x} e^{\theta} \\
+%\sum \ell' &=& \sum 1 - e^{-x} e^{\theta} = n - e^{\theta} \sum e^{-x_i} \mathimplies \thetahathatmle = \natlog{\frac{n}{\sum e^{-x_i}}}\\
+%\ell'' &=& - e^{-x} e^{\theta} \\
+%I(\theta) &=& \expe{-\ell''} = \expe{e^{-x} e^{\theta}} = e^{\theta} \expe{e^{-x} } = e^{\theta} e^{-\theta} = 1 \mathimplies I(\theta)^{-1} = 1 \\
+%\frac{\thetahatmle - \theta}{\sqrt{\oneover{n}}} &\convd& \stdnormnot \\
+%\thetahatmle &\approxdist& \normnot{\theta}{\oneover{n}} \\
+%Z &\sim& \text{Gumbel}(0,1) \mathimplies e^{-Z} \sim \exponential{1} \mathimplies \expe{e^{-Z}} = 1 \\
+%X = \theta + Z &\sim& \text{Gumbel}(\theta, 1) \mathimplies  \expe{e^{-X}} = \expe{e^{-\theta}e^{-Z}} = e^{-\theta}\expe{e^{-Z}}  =e^{-\theta}
+%\eeqn
+
 
 \hardsubproblem{Write the approximate distribution of the MLE. You will need the following fact from Math 368 to find the answer: $\expe{e^{-X}} = e^{-\theta}$.}\spc{11}
 

@@ -1,6 +1,6 @@
 pacman::p_load(extraDistr)
 
-n = 7
+n = 700
 theta = 3
 theta_0 = 2
 

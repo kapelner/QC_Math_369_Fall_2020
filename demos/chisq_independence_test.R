@@ -1,6 +1,5 @@
 pacman::p_load(datasets)
 
-datasets::HairEyeColor
 X = datasets::HairEyeColor[, , "Male"]
 X
 n = sum(X)

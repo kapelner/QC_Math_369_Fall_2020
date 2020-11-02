@@ -1,4 +1,4 @@
-pacman::p_load(datasets)
+pacman::p_load(datasets, xtable)
 
 X = datasets::HairEyeColor[, , "Male"]
 X
@@ -7,6 +7,7 @@ n_i_dots = rowSums(X)
 n_dot_js = colSums(X)
 theta_i_dots = n_i_dots / n
 theta_dot_js = n_dot_js / n
+n
 n_i_dots
 n_dot_js
 theta_i_dots
@@ -21,4 +22,6 @@ sum((X - E)^2 / E)
 
 
 #homogeneity
-t(apply(datasets::HairEyeColor, 3, colSums))
+hair_color_mf = t(apply(datasets::HairEyeColor, 3, colSums))
+hair_color_mf
+xtable(hair_color_mf)

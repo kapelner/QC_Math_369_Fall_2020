@@ -20,8 +20,10 @@ rowSums(E)
 (X - E)^2 / E
 sum((X - E)^2 / E)
 
+#for HW
+xtable(datasets::HairEyeColor[, , "Female"], digits = 0)
 
 #homogeneity
 hair_color_mf = t(apply(datasets::HairEyeColor, 3, colSums))
 hair_color_mf
-xtable(hair_color_mf)
+xtable(hair_color_mf, digits = 0)

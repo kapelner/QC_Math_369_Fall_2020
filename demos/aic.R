@@ -48,8 +48,9 @@ round(akaike_weights * 100, 2)
 
 #now compute the AICc's
 k = 2 #it's the same for all models
-aiccs = aic_s_sorted - 2 * k + 2 * 2 * n / (n-k-1)
+aiccs = aic_s_sorted - 2 * k + 2 * k * n / (n-k-1)
 aiccs
+sort(aiccs)
 aic_s_sorted
 #doesn't make any difference in the rankings
 
@@ -71,3 +72,4 @@ fit_normal
 fit_cauchy
 fit_logistic
 fit_laplace
+c(fit_normal$aic, fit_cauchy$aic, fit_logistic$aic, fit_laplace$aic)

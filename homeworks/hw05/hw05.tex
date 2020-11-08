@@ -67,11 +67,11 @@ NAME: \line(1,0){380}
 
 To do this, you will need the following theorem. For constants $c, d$ and r.v. sequences $A_n$ and $B_n$ where $A_n \convp a$ and $B_n \convp b$ then $cA_n + dB_n \convp ca + db$. Then you use the \href{https://en.wikipedia.org/wiki/Continuous_mapping_theorem}{continuous mapping theorem} (what we've been calling Thm 5.5.4) and Slutsky's (i.e. follow HW4 1e exactly). Remember $S_1 \convp \sigma_1$ and $S_2 \convp \sigma_2$.}\spc{5}
 
-\easysubproblem{For the same obesity study as in 1(b), now consider the outcome metric \qu{binge episodes per week} which is a count metric (e.g. 1 day, 2 days, 3 days, ..., all 7 days!). Explain why the normality assumption does not hold for the DGP in both samples.}\spc{3}
+\easysubproblem{For the same obesity study as in 1(b), now consider the outcome metric \qu{binge episodes per week} which is a count metric (e.g. 1 day, 2 days, 3 days, ..., all 7 days!). Since it's real data, no moments are known! Explain why the normality assumption does not hold for the DGP in both samples.}\spc{3}
 
 \intermediatesubproblem{Test the theory that mean \qu{binge episodes per week} differs in both poputions. The raw data is in Table 3 and the format is $\xbar \pm s$. Don't forget that standard error is not standard deviation!}\spc{10}
 
-\intermediatesubproblem{Assume a DGP of $\iid \text{Gumbel}(\theta, 1)$. In HW 4 you proved that $\thetahatmle = \natlog{n / \sum_{i=1}^n e^{-X_i}}$ and $I(\theta) = 1$ (the $I(\theta) = e^{-2\theta}$ in lecture 12 was my mistake so please ignore that). Provide the asymptotic distribution of $\thetahatmle$ and run the test from lecture 12 again given the data there.}\spc{7}
+\intermediatesubproblem{Assume a DGP of $\iid \text{Gumbel}(\theta, 1)$. In HW 4 you proved that $\thetahatmle = \natlog{n / \sum_{i=1}^n e^{-X_i}}$ and $I(\theta) = 1$ (the $I(\theta) = e^{-2\theta}$ in lecture 12 was my mistake so please ignore that). Provide the asymptotic distribution of $\thetahatmle$ and run the test from lecture 12 again given the data there as a 2-sided test.}\spc{7}
 
 
 \end{enumerate}
@@ -267,10 +267,10 @@ Write $H_0$ homogeneity between male and female across hair colors and $H_a$: he
 \begin{enumerate}
 
 
-\intermediatesubproblem{Compute $\ell\parens{\thetahathatmle_1, \thetahathatmle_2; x_1, \ldots, x_{10}}$ for MOD 1. This is nothing but some computation. Remember $\theta_2$ in the $ \normnot{\theta_1}{\theta_2}$ notation is the variance not the standard deviation!}\spc{5}
+\intermediatesubproblem{Compute $\ell\parens{\thetahathatmle_1, \thetahathatmle_2; x_1, \ldots, x_{10}}$ for MOD 1 without using the AIC value. This is nothing but some computation. Remember $\theta_2$ in the $ \normnot{\theta_1}{\theta_2}$ notation is the variance not the standard deviation!}\spc{5}
 
 
-\intermediatesubproblem{[MA] Compute $\ell\parens{\thetahathatmle_1, \thetahathatmle_2; x_1, \ldots, x_{10}}$ for MOD 3.}\spc{5}
+\intermediatesubproblem{[MA] Compute $\ell\parens{\thetahathatmle_1, \thetahathatmle_2; x_1, \ldots, x_{10}}$ for MOD 3 without using the AIC value.}\spc{5}
 
 \easysubproblem{Compute the AIC for MOD1 given your answer in (a). Is it the same that I computed using software?}\spc{3}
 

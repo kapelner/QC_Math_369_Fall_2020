@@ -63,23 +63,24 @@ MATH 369 is an introduction to the intermediate concepts of mathematical statist
 \item Un/biased estimators and asymptotically unbiased estimators, consistent estimator, 
 \item Method of Moments (MM), Maximum likelihood estimator (MLE)
 \item Cramer-Rao Lower Bound, Fisher information, UMVUEs
-\item Asymptotical normality and efficiency of MLE's, delta method
+\item Asymptotical normality and efficiency of MLE's, uni/multivariate delta methods
 \item Identifiability
-\item Sufficiency, Rao-Blackwell Theorem?, the exponential family?, \qu{natural} sufficient statistics?
+\item Sufficient statistics, Rao-Blackwell Theorem?, the exponential family?, \qu{natural} sufficient statistics?
 \end{itemize}
 \item Testing
 \begin{itemize}
 \item Neyman-Pearson paradigm of Hypothesis testing
 \item Left-sided/tailed, right-sided/tailed, two-sided/tailed tests
 \item One proportion z-test, One sample z-test, one sample t-test, two sample z-test (un/equal variances), two sample t-test  (un/equal variances), two-proportion z-test.
-\item Fisher's $p$-value
-\item Power
+\item Size ($\alpha$), Fisher's $p$-value and \qu{statistical significance}
+\item Statistical power and the power function
+\item Effect sizes and \qu{practical / clinical significance}
 \item uniformly most powerful tests?, equivalence testing?
-\item Wald test, score test, likelihood ratio and generalized likelihood ratio tests
+\item Wald test, score test, likelihood ratio / generalized likelihood ratio tests
 \item Chi-squared tests for goodness of fit and independence
 \item Empirical distributions, tests of distributional fit (Kolmogorov-Smirnov and Anderson-Darling)
 \item Non-parametric tests: sign, rank, permutation
-\item The problem of multiple comparisons: Bonferroni, false discovery rate
+\item Multiple testing comparison problem: familywise error control via the Bonferroni, Sidak and Simes procedures, false discovery rate control via the Benjamini-Hochberg procedure
 \item The parametric and non-parametric bootstrap
 \end{itemize}
 \item Experimentation and Causality
@@ -88,11 +89,17 @@ MATH 369 is an introduction to the intermediate concepts of mathematical statist
 \item Randomization and Design of Experiments
 \item Population vs. randomization model
 \item Randomization test
-\item Observational Studies, confounding, Simpson's Paradox
+\item Confounding, Simpson's Paradox, Observational Studies?
+\end{itemize}
+\item Model Selection
+\begin{itemize}
+\item Naive model selection bias based on number of parameters (overfitting)
+\item Model section criterions: AIC, AICC
+\item Akaike weights / scores
 \end{itemize}
 \end{itemize}
 
-\textbf{This is more of a typical mathematics theory course than the rest of the data science series but it is still not like the other math courses you're used to; it will be more philosophical.} But we will still attempt to keep our eye on developing ideas and concepts for helping to make decisions in the real world. Thus we may make limited use of computation using the \texttt{R} statistical language.
+\textbf{This is more of a typical mathematics theory course than the rest of the data science series but it is still not like the other math courses you're used to; it will be more philosophical and the math itself is kept simple.} But we will still attempt to keep our eye on developing ideas and concepts for helping to make decisions in the real world. Thus we may make limited use of computation using the \texttt{R} statistical language.
 
 \subsection*{Prerequisites}
 
@@ -105,15 +112,15 @@ You are the students taking this course as part of a masters degree. Thus, there
 
 \section*{Course Materials}
 
-\paragraph{Textbook:} John A. Rice's \emph{Mathematical Statistics and Data Analysis}, 3rd edition which can be purchased on \href{https://www.amazon.com/dp/0534399428}{Amazon} for a reasonable price (as far as textbooks go). There is no excuse not to have this book. It is \textit{required}. However, I will not ususally be teaching \qu{from the book} --- most of the material in the class comes from the lecture notes. The textbook is a way to get ``another take'' on the material. The textbook covers about only half of the material done in class. For the other half, you will have to make use of other resources. I also recommend Larry Wasserman's \emph{All of Statistics: A concise course in statistical inference} which can be purchased on \href{https://www.amazon.com/dp/0387402721}{Amazon} as well.
+\paragraph{Textbook:} I will be referencing Larry Wasserman's \emph{All of Statistics: A concise course in statistical inference} which can be purchased on \href{https://www.amazon.com/dp/0387402721}{Amazon} and Casella and Berger's \emph{Statistical Inference} which can be purchased on \href{https://www.amazon.com/dp/8131503941}{Amazon}. There is no excuse not to have these books. They are \textit{required}. However, I will not ususally be teaching \qu{from the book} --- most of the material in the class comes from the lecture notes. The textbooks are a way to get ``another take'' on the material and they will only cover about only half of the material done in class. For the other half, you will have to make use of other resources. I also recommend Rice's \emph{Mathematical Statistics and Data Analysis}, 3rd edition which can be purchased on \href{https://www.amazon.com/dp/0534399428}{Amazon} as well. 
 
-\paragraph{Computer Software:} We will also be using \texttt{R} which is a free, open source statistical programming language and console. You can download it from: \url{http://cran.mirrors.hoobly.com/}. I do not expect you to do \textit{any} programming. I will be giving you \texttt{R} code to run and expect you to interpret the results based on concepts explained during the course.
+\paragraph{Computer Software:} During lectures, there will be demoes using \texttt{R} which is a free, open source statistical programming language and console. You can download it from: \url{http://cran.mirrors.hoobly.com/}. I do not expect you to do \textit{any} programming. If \texttt{R} will be part of the homework, I will give you the code to run and expect you to interpret the results based on concepts explained during the course.
 
 \paragraph{Calculator:} You can use a TI-84, 85, 89 or any calculator which you wish. I strongly suggest you use \href{http://www.wolframalpha.com/}{Wolfram Alpha} and its smartphone app.
 
 \section*{Announcements}
 
-Announcements will be made via email. I am known to send a couple emails per week on important issues. Thus, I will need the email address that you reliably check. The default email is whatever happens to be in CUNYfirst which many of you do not check. (See Homework \#0 for more information).
+Course announcements will be made via slack in the \#general channel. I am known to send a few slack messages per week on important issues. Thus, I will need the email address that you reliably check. The default email is whatever happens to be in CUNYfirst which many of you do not check. (See Homework \#0 for more information).
 
 \section*{Lectures on Zoom}
 

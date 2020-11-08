@@ -65,7 +65,7 @@ NAME: \line(1,0){380}
 
 \intermediatesubproblem{For two independent samples of unknown DGP's with means $\theta_1$ and $\theta_2$ and unknown by finite variances, prove that the Wald test is an asymptotically valid 2-sample z-test.
 
-To do this, you technically need a multidimensional \href{https://en.wikipedia.org/wiki/Continuous_mapping_theorem}{continuous mapping theorem} (what we've been calling Thm 5.5.4). So assume that for r.v. sequences $A_n$ and $B_n$ if $A_n \convp a$ and $B_n \convp b$ then $h(A_n, B_n) \convp h(a,b)$ if $h$ is continuous. This looks scary but all you have to do is assume $S_1 \convp \sigma_1$ and $S_2 \convp \sigma_2$ and follow HW4's 1(e) exactly.}\spc{5}
+To do this, you will need the following theorem. For constants $c, d$ and r.v. sequences $A_n$ and $B_n$ where $A_n \convp a$ and $B_n \convp b$ then $cA_n + dB_n \convp ca + db$. Then you use the \href{https://en.wikipedia.org/wiki/Continuous_mapping_theorem}{continuous mapping theorem} (what we've been calling Thm 5.5.4) and Slutsky's (i.e. follow HW4 1e exactly). Remember $S_1 \convp \sigma_1$ and $S_2 \convp \sigma_2$.}\spc{5}
 
 \easysubproblem{For the same obesity study as in 1(b), now consider the outcome metric \qu{binge episodes per week} which is a count metric (e.g. 1 day, 2 days, 3 days, ..., all 7 days!). Explain why the normality assumption does not hold for the DGP in both samples.}\spc{3}
 

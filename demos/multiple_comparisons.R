@@ -31,3 +31,12 @@ ps_sorted
 stepped_up_thresholds = alpha * (1 : m) / m 
 stepped_up_thresholds
 ps_sorted < stepped_up_thresholds
+
+
+
+pacman::p_load(data.table)
+#X = fread("https://zenodo.org/record/2396572/files/Yeast_AssembledData3Columns.csv?download=1")
+#https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6792083
+#https://zenodo.org/record/2396572#.X6NLm4hKiUk
+
+

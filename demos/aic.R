@@ -1,4 +1,4 @@
-pacman::p_load(fitdistrplus, nimble, VaRES)
+pacman::p_load(fitdistrplus, nimble, VaRES, data.table)
 plogistic = function(q, mu, sigma){VaRES::plogistic(q, mu, sigma)}
 
 set.seed(2)
@@ -53,10 +53,6 @@ aiccs
 sort(aiccs)
 aic_s_sorted
 #doesn't make any difference in the rankings
-
-
-
-
 
 
 #for HW5

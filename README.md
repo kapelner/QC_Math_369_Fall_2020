@@ -53,7 +53,7 @@ My lecture videos can be watched on slack and lecture notes are also scanned in 
 ## Exams
 
 * Midterm I, September 30 (on zoom during lecture) [(exam)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/exams/midterm1/midterm1.pdf) [(solutions)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/exams/midterm1/midterm1_solutions.pdf)
-* Midterm II, November 4 (on zoom during lecture) 
+* Midterm II, November 11 (on zoom during lecture) 
 * Final, December 16 4-6PM (on zoom)
 
 <!--

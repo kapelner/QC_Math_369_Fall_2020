@@ -1,0 +1,348 @@
+%\documentclass[12pt]{article}
+\documentclass[12pt,landscape]{article}
+
+
+\include{preamble}
+
+\newcommand{\instr}{\small Your answer will consist of a lowercase string (e.g. \texttt{aebgd}) where the order of the letters does not matter. \normalsize}
+
+\title{Math 369 / 650 Fall \the\year{} \\ Midterm Examination Two}
+\author{Professor Adam Kapelner}
+
+\date{Wednesday, November 11, \the\year{}}
+
+\begin{document}
+\maketitle
+
+%\noindent Full Name \line(1,0){410}
+
+\thispagestyle{empty}
+
+\section*{Code of Academic Integrity}
+
+\footnotesize
+Since the college is an academic community, its fundamental purpose is the pursuit of knowledge. Essential to the success of this educational mission is a commitment to the principles of academic integrity. Every member of the college community is responsible for upholding the highest standards of honesty at all times. Students, as members of the community, are also responsible for adhering to the principles and spirit of the following Code of Academic Integrity.
+
+Activities that have the effect or intention of interfering with education, pursuit of knowledge, or fair evaluation of a student's performance are prohibited. Examples of such activities include but are not limited to the following definitions:
+
+\paragraph{Cheating} Using or attempting to use unauthorized assistance, material, or study aids in examinations or other academic work or preventing, or attempting to prevent, another from using authorized assistance, material, or study aids. Example: using an unauthorized cheat sheet in a quiz or exam, altering a graded exam and resubmitting it for a better grade, etc.
+\\
+
+\noindent By taking this exam, you acknowledge and agree to uphold this Code of Academic Integrity. \\
+
+%\begin{center}
+%\line(1,0){250} ~~~ \line(1,0){100}\\
+%~~~~~~~~~~~~~~~~~~~~~signature~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ date
+%\end{center}
+
+\normalsize
+
+\section*{Instructions}
+
+This exam is 75 minutes (variable time per question) and closed-book. You are allowed \textbf{one} page (front and back) of a \qu{cheat sheet}, blank scrap paper and a graphing calculator. Please read the questions carefully. No food is allowed, only drinks. %If the question reads \qu{compute,} this means the solution will be a number otherwise you can leave the answer in \textit{any} widely accepted mathematical notation which could be resolved to an exact or approximate number with the use of a computer. I advise you to skip problems marked \qu{[Extra Credit]} until you have finished the other questions on the exam, then loop back and plug in all the holes. I also advise you to use pencil. The exam is 100 points total plus extra credit. Partial credit will be granted for incomplete answers on most of the questions. \fbox{Box} in your final answers. Good luck!
+
+\pagebreak
+
+
+
+\problem\timedsection{5} These are questions on method of moments estimators.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{11} 
+
+\begin{enumerate}[(a)]
+\item For any DGP, $\thetahatmm$ will be a function of the data.
+\item For any DGP, $\thetahatmm$ will be a function of the data and of $\theta$.
+\item For any DGP, its fifth moment is $\expe{X^5}$ if it exists.
+\item For any iid DGP with a finite expectation, $\thetahat = \Xbar := \oneover{n}\sum_{i=1}^n X_i$ is an MM estimator for the DGP's expectation.
+\item For any iid DGP with a finite variance, $\thetahat = \sigsqhat := \oneover{n}\sum_{i=1}^n (X_i - \Xbar)^2$ is an MM estimator for the DGP's variance.
+\item Let $\thetahatmm$ be an estimator for $\theta$. Its estimate $\thetahathatmm$ must be a legal value in the parameter space of $\theta$.
+\item For an iid DGP with a finite variance where $\theta := \expe{X} / \sd{X}$, then $\thetahatmm = \Xbar / \sqrt{\sigsqhat}$ where $\Xbar$ and $\sigsqhat$ are defined in (d) and (e).\\
+
+Consider a DPG $\Xoneton \iid \text{ShiftedParetoI}(1, \theta) := \theta (x + 1)^{-\theta - 1}$ which has support in positive numbers only. Using calculus you can show that $\expe{X} = \frac{1}{\theta - 1}$.
+\item $\thetahatmm = \Xbar$
+\item $\thetahatmm = 1 / \Xbar$
+\item $\thetahatmm = 1 / \Xbar + 1$
+\item $\thetahatmm = (\Xbar + 1) / \Xbar$
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\problem\timedsection{13} Consider the DPG from the previous problem, $\iid \text{ShiftedParetoI}(1, \theta) := \theta (x + 1)^{-\theta - 1}$ which has support in positive numbers only and consider a dataset $\xoneton$ to be realizations from this DGP.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{19} 
+
+\begin{enumerate}[(a)]
+\item The likelihood for all the data is $=\theta (\xoneton + 1)^{-\theta - 1}$.
+\item The likelihood for all the data is $=\prod_{i=1}^n \theta (x_i + 1)^{-\theta - 1}$.
+\item The log likelihood for all the data is $=\prod_{i=1}^n \theta (\natlog{x_i} + 1)^{-\theta - 1}$.
+\item The log likelihood for all the data is $=\natlog{\prod_{i=1}^n \theta (x_i + 1)^{-\theta - 1}}$.
+\item The log likelihood for all the data is $=n\natlog{\theta} + \natlog{(-\theta - 1)\prod_{i=1}^n  (x_i + 1)}$.
+\item The log likelihood for all the data is $=n\natlog{\theta} + (-\theta - 1) \sum_{i=1}^n  \natlog{x_i + 1}$.
+\item The score function for all the data is the derivative of the log likelihood function.
+\item The deriviative of the log likelihood for all the data is $=\frac{n}{\theta} - \sum_{i=1}^n  \natlog{x_i + 1}$.
+\item Assuming (h) is true, $\thetahathatmle = n \Big/ \sum_{i=1}^n  \natlog{x_i + 1}$.
+\item The Fisher information for this DGP is $I(\theta) = 1$.
+\item The Fisher information for this DGP is $I(\theta) = n / \theta^2$.
+\item The Fisher information for this DGP is $I(\theta) = -1 / \theta^2$.
+\item The Fisher information for this DGP is $I(\theta) = 1 / \theta^2$.
+\item The variance of any unbiased estimator for $\theta$ for this DGP must be at least $1 / n$.
+\item The variance of any unbiased estimator for $\theta$ for this DGP must be at least $\theta / n$.
+\item The variance of any unbiased estimator for $\theta$ for this DGP must be at least $\theta^2 / n$.
+\item To show that $\thetahatmle$ is/isn't the UMVUE for $\theta$ involves simple algebra / calculus on information available to you on this page.
+\item To show that $\thetahatmle$ is/isn't the UMVUE for $\theta$ involves a lot of algebra / calculus but the information you require is available to you on this page.
+\item To show that $\thetahatmle$ is/isn't the UMVUE for $\theta$ is impossible given the information available to you on this page.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\problem\timedsection{6} \ingray{Consider the DPG from the previous problem, $\iid \text{ShiftedParetoI}(1, \theta) := \theta (x + 1)^{-\theta - 1}$ which has support in positive numbers only and consider a dataset $\xoneton$ to be realizations from this DGP.} Let $\sigsq$ denote the variance of this DGP model. You can show that $\thetahathatmle = n \Big/ \sum_{i=1}^n  \natlog{x_i + 1}$ and $I(\theta) = 1 / \theta^2$. 
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{13} 
+
+\begin{enumerate}[(a)]
+\item $\var{\thetahatmle} = \theta^2 / n$.
+\item $\thetahatmle$ is normally distributed.
+\item $\thetahatmle$ is distributed as a Student's $t$ distribution.
+\item $\thetahatmle$ is an asymptotically normally estimator.
+\item $\thetahatmle \approxdist \normnot{0}{1}$.
+\item $\thetahatmle \approxdist \normnot{\theta}{\sigsq / n}$.
+\item $\thetahatmle \approxdist \normnot{\theta}{\oneover{n\theta^2}}$.
+\item You can use the fact in (g) to create a confidence interval for $\theta$ (i.e. a function of $\xoneton$ and constants).
+\item $\thetahatmle \approxdist \normnot{\theta}{\squared{\oversqrtn{\theta}}}$.
+\item You can use the fact in (i) to create a confidence interval for $\theta$ (i.e. a function of $\xoneton$ and constants).
+\item $\thetahatmle \approxdist \normnot{\thetahathatmle}{\squared{\oversqrtn{\thetahathatmle}}}$.
+\item You can use the fact in (k) to create a confidence interval for $\theta$ (i.e. a function of $\xoneton$ and constants).
+\item $\thetahatmle$ can provide arbitrary precision to measure $\theta$ given a higher sample size $n$.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\problem\timedsection{4} Consider the DGP $\Xoneton \iid U(0, \theta)$. We showed in class that $\thetahatmm = 2\Xbar$ and $\thetahatmle = \max{\Xoneton}$.
+%
+%\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{5} 
+%
+%\begin{enumerate}[(a)]
+%\item $\thetahathatmm > \thetahathatmle$.
+%\item $\bias{\thetahatmm} = 0$.
+%\item $\var{\thetahatmm} > \var{\thetahatmle}$.
+%\item $\mse{\thetahatmm} > \mse{\thetahatmle}$.
+%\end{enumerate}
+%\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{6} Consider $\xoneton$ to be realizations from an iid DGP, $\thetahat$ to be an unbiased estimator for $\theta$ and assume the conditions needed to prove the Cramer-Rao Lower Bound (CRLB). A quantity primed (e.g. $\ell'$) denotes differentiation with respect to $\theta$. 
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{7} 
+
+\begin{enumerate}[(a)]
+\item ${\ell'\parens{\thetahat; \xoneton}} = 0$
+\item $\expe{\ell\parens{\theta; \Xoneton}} = 0$
+\item $\expe{\ell\parens{\theta; \Xoneton}} = n\expe{\ell\parens{\theta; X}}$
+\item $\expe{\ell\parens{\theta; \Xoneton}^2} = 0$
+\item $\expe{\ell'\parens{\theta; \Xoneton}^2} = 0$
+\item $\partialop{\theta}{\expe{\ell\parens{\theta; \Xoneton}}} = 0$
+\item $\var{\ell\parens{\theta; \Xoneton}^2} = 0$
+\item $\var{\ell'\parens{\theta; \Xoneton}^2} = nI(\theta)$
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\problem\timedsection{4} These are some questions about some theorems we discussed in class. Let $X_1, X_2, ... $ be rv's and $a_1, a_2, ...$ be constants.
+%
+%\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{5} 
+%
+%\begin{enumerate}[(a)]
+%\item If $X_1 \convp a_1$, then $\natlog{X_1} \convp \natlog{a_1}$.
+%\end{enumerate}
+%\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{5} These are some questions about some theorems we discussed in class. Let $X_1, X_2, ... $ be rv's indexed also by $n$, the sample size, and $a_1, a_2, ...$ be positive constants.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{6} 
+
+\begin{enumerate}[(a)]
+\item If $X_1 \convp a_1$, then $\natlog{X_1} \convp \natlog{a_1}$.
+\item If $X_1 \convp a_1$, then $\displaystyle\oneover{X_1} \convp \oneover{a_1}$.
+\item If $X_1 \convp a_1$ and $\displaystyle \frac{X_2 - \mu}{a_1} \convd \stdnormnot$ then $\displaystyle\frac{X_2 - \mu}{X_1} \convd \stdnormnot$
+\item If $\displaystyle \frac{X_1 - \mu}{a_1} \sim \stdnormnot$ then $\displaystyle\frac{(X_1 - \mu)^2}{a_1^2} \sim \stdnormnot$
+\item If $\displaystyle \frac{X_1 - \mu}{a_1} \sim \stdnormnot$ then $\displaystyle\frac{(X_1 - \mu)^2}{a_1^2} \sim \chisq{n}$
+\item If you do a one-sample t test with $n=20$ and get a standardized estimate of -2.30. If the square of this estimate is less than 95\% quantile of the $F_{1,19}$ distribution, then you retain $H_0$.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{7} According to Benford's Law in Base 10, in any measurement setting that spans orders of magnitude, the first digit of measurements is more likely to be a one than a two, a two than a three, etc. This phenomenon is ubiquitous and can be used to describe measurements for city populations, surface area of rivers, dollar amounts on tax returns, etc. The distribution is on the first row of the table below.
+
+Here we investigate possible fraud in the 2009 Iranian election, a topic of many academic papers. We examine the vote counts in the 366 districts for one of the five main candidates and count the number of districts who's count had first digit = 1, first digit = 2, ..., first digit = 9. The tally is the second row of the table below. 
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{l|ccccccccc|c}
+& \multicolumn{9}{c}{First Digit is $x = $} &\\
+ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & Total \\\hline\hline
+Benford's Law in Base 10 $p_X(x) = $ & .301 & .176 & .125 & .097 & .079 & .067 & .058 & .051 & .046 & 1.000 \\\hline
+Observed Count & 125 & 57 & 44 & 29 & 24 & 16 & 41 & 13 & 17 & 366\\ 
+\ingray{Row 3 Name} & 110.17 & 64.42 & 45.75 & 35.50 & 28.91 & 24.52 & 21.23 & 18.67 & 16.84 & ?\\ 
+\ingray{Row 4 Name}  & 2.00 & 0.85 & 0.07 & 1.19 & 0.83 & 2.96 & 18.42 & 1.72 & 0.00 & ?
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+We wish to test if the voting counts \emph{differ} from Benford's Law at $\alpha = 5\%$. Let $\theta_1$ denote the true probability of a count having a first digit = 1, $\theta_2$ denote the true probability of a count having a first digit = 2, ..., $\theta_9$ denote the true probability of a count having a first digit = 9. Note: $F_{\chisq{8}}(15.51) = F_{\chisq{9}}(16.92) = F_{\chisq{24}}(36.42) = F_{\chisq{27}}(40.11) = 95\%$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{9} 
+
+\begin{enumerate}[(a)]
+\item This test is a \qu{goodness of fit} test.
+\item This test is an \qu{independence} of $\geq 2$ events test.
+\item The number of parameters in Benford's Law in Base 10 is 8.
+\item $H_0: \theta_1 = \theta_2 = \ldots = \theta_9 = 1/9$.
+\item $H_0:$ The $\theta_k$'s are equal to the values in the table's first row.
+\item $H_a: \theta_1 = \theta_2 = \ldots = \theta_9 = 1/9$.
+\item $H_a:$ at least one $\theta_k$ is not equal to the value in the table's first row.
+\item The name of row 3 could be \qu{expected number of first digits in the district counts under Benford's Law in Base 10}.
+\item The name of row 4 could be \qu{expected number of first digits in the district counts under Benford's Law in Base 10}.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{7} \textbf{This header is the same as in the previous problem.} According to Benford's Law in Base 10, in any measurement setting that spans orders of magnitude, the first digit of measurements is more likely to be a 1 than a 2, a 2 than a 3, etc. This phenomenon is ubiquitous and can be used to describe measurements for city populations, surface area of rivers, dollar amounts on tax returns, etc. The distribution is on the first row of the table below.
+
+Here we investigate possible fraud in the 2009 Iranian election, a topic of many academic papers. We examine the vote counts in the 366 districts for one of the five main candidates and count the number of districts who's count had first digit = 1, first digit = 2, ..., first digit = 9. The tally is the second row of the table below. 
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{l|ccccccccc|c}
+& \multicolumn{9}{c}{First Digit is $x = $} &\\
+ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & Total \\\hline\hline
+Benford's Law in Base 10 $p_X(x) = $ & .301 & .176 & .125 & .097 & .079 & .067 & .058 & .051 & .046 & 1.000 \\\hline
+Observed Count & 125 & 57 & 44 & 29 & 24 & 16 & 41 & 13 & 17 & 366\\ 
+\ingray{Row 3 Name} & 110.17 & 64.42 & 45.75 & 35.50 & 28.91 & 24.52 & 21.23 & 18.67 & 16.84 & ?\\ 
+\ingray{Row 4 Name}  & 2.00 & 0.85 & 0.07 & 1.19 & 0.83 & 2.96 & 18.42 & 1.72 & 0.00 & ?
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+We wish to test if the voting counts \emph{differ} from Benford's Law at $\alpha = 5\%$. Let $\theta_1$ denote the true probability of a count having a first digit = 1, $\theta_2$ denote the true probability of a count having a first digit = 2, ..., $\theta_9$ denote the true probability of a count having a first digit = 9. Note: $F_{\chisq{8}}(15.51) = F_{\chisq{9}}(16.92) = F_{\chisq{24}}(36.42) = F_{\chisq{27}}(40.11) = 95\%$.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{7} 
+
+\begin{enumerate}[(a)]
+
+\item The Pearson chisq statistic has an estimate = 366.00.
+\item The Pearson chisq statistic has an estimate = 28.04.
+\item The Pearson chisq statistic estimator here is asymptotically $\chisq{24}$.
+\item The Pearson chisq statistic estimator here is asymptotically $\chisq{8}$.
+\item If (d) were to be true, the retainment region for the estimate would be $\bracks{-15.51, +15.51}$.
+\item $H_0$ is rejected and we conclude that the counts for this specific candidate is \emph{not} Benford-Law-distributed.
+\item Assuming (f), the digit that is most incongruent with Benford's law is $x=9$.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width = 6in]{windspeeds.pdf}
+\end{figure}
+
+\problem\timedsection{10} Above is a histogram of wind speeds at JFK airport measured at midnight for every day in 2013. We fit eight different iid DGPs / models to this data. Below are the models, the maximum likelihood estimates for their parameter(s) and their log likelihood value estimates:
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{r|cccccccc}
+& \multicolumn{8}{c}{Name of Model / DGP}\\
+ & Exponential & Normal & Weibull & Gamma & Gumbel & Gompertz & Frechet & Generalized Logistic \\\hline
+$\thetahathatmle_1$ & 0.05 & 18.97 & 3.52 & 11.71 & 15.17 & 0.14 & 3.18 & 3.49 \\ 
+$\thetahathatmle_2$ &  & 5.59 & 21.01 & 0.62 & 4.84 & 0.05 & 15.59 & 12.22 \\ 
+$\thetahathatmle_3$ &  &  &  &  &  &  &  & 4.03 \\ \hline
+$\ell(\thetahathatmle_1, \ldots, \thetahathatmle_{K_m}; \xoneton)$ & -1435.12 & -1142.72 & -1148.11 & -1129.28 & -1143.31 & -1200.26 & -1174.37 & -1129.65
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{9} 
+
+\begin{enumerate}[(a)]
+\item All of these models have the same number of parameters $K$.
+\item The true model will be one of these eight models candidates.
+\item According to the log-likelihood estimates, the best fitting model candidate is the Gamma.
+\item According to the AICC metric, the best fitting model candidate is the Generalized Logistic.
+\item The asymptotic bias on the true log-likelihood for the normal model is the same as the bias for the Gompertz model.
+\item The AIC metric for the generalized logistic model candidate is 2263.30. %false
+\item The AIC metric for the exponential model candidate is 2872.24. %true
+\item Assuming (b), the probability the exponential model is the true model is negligibly small.
+\item AICC values will not significantly differ from the AIC values.
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\problem\timedsection{16} In the \qu{Topiramate for the Treatment of Binge Eating Disorder Associated With Obesity: A Placebo-Controlled Study}, the researchers were also interested in adverse effects of the drug Topiramate. One such bad effect is \qu{Upper Respiratory Tract Infection} which we call \emph{infection}. The experimental results are below.
+
+\begin{itemize}
+\item In the $n_T = 202$ Topiramate group, there were 75 cases of infection and 
+\item in the $n_C = 202$ placebo group that did not take Topiramate, there were 40 cases of infection. 
+\end{itemize}
+Let $\theta_T$ be the true proportion of infection in Topiramate-takers and $\theta_C$ be the true proportion of infection among non Topiramate-takers.  All numbers below are rounded to the nearest 3 digits.
+
+\vspace{-0.2cm}\benum\truefalsesubquestionwithpoints{13} 
+
+\begin{enumerate}[(a)]
+\item When testing $H_a: \theta_T \neq \theta_C$ at $\alpha = 5\%$, a retainment region for $H_0$ is equal to or is approximately $\bracks{-0.086, 0.086}$.%true
+\item When testing $H_a: \theta_T \neq \theta_C$ at $\alpha = 5\%$, a retainment region for $H_0$ is equal to or is approximately $\bracks{-0.088, 0.088}$.%true
+\item $CI_{\theta_T - \theta_C, 95\%}$ is equal to or is approximately $\bracks{0.087, 0.260}$.%true
+\item There is a 95\% chance that the CI estimate in (c) contains the true mean difference $\theta_T - \theta_C$.
+\item The estimate of the odds against infection in the Topiramate group is 1.693. %true
+\item The estimate of the odds against infection in the Topiramate group is 0.591. %false
+\item When testing $H_a: \displaystyle \frac{1 - \theta_T}{\theta_T} \neq \half$ at $\alpha = 5\%$, a retainment region for $H_0$ is equal to or is approximately $\bracks{0.224, 0.776}$.%true
+\item The estimate of the risk ratio of infection in the Topiramate group vs the control group is 0.173.%false
+\item The estimate of the risk ratio of infection in the Topiramate group vs the control group is 1.875.%true
+\item $CI_{\theta_T / \theta_C, 95\%}$ is equal to or is approximately $\bracks{1.255, 2.495}$.%true
+\item $CI_{\theta_T / \theta_C, 95\%}$ is equal to or is approximately $\bracks{-0.088, 0.088}$.%false
+\item It would be possible to create an exact CI for the risk ratio of infection in the Topiramate group vs the control group given the data here and the concepts learned in class.%false
+\item The CI estimator in (j) is more approximate in coverage probability than the CI estimator in (c).
+\end{enumerate}
+\eenum\instr\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+

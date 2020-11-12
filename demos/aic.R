@@ -69,3 +69,56 @@ fit_cauchy
 fit_logistic
 fit_laplace
 c(fit_normal$aic, fit_cauchy$aic, fit_logistic$aic, fit_laplace$aic)
+
+#for midterm2
+pacman::p_load(nycflights13, ggplot2, xtable)
+
+X = data.table(nycflights13::weather)
+x = as.matrix(X[origin == "JFK", .(max_windspeed = max(wind_speed, na.rm = TRUE)), by = c("month", "day")])[, 3]
+ggplot(data.frame(x = x)) + 
+  geom_histogram(aes(x = x), bins = 100) +
+  xlab("maximum wind speeds by day at JFK airport in 2013")
+
+pgumbel = function(q, mu, sigma){VaRES::pgumbel(q, mu, sigma)}
+pfrechet = function(q, mu, sigma){VaRES::pfrechet(q, mu, sigma)}
+pgompertz = function(q, mu, sigma){VaRES::pgompertz(q, mu, sigma)}
+pgenlogis = function(q, a, mu, sigma){VaRES::pgenlogis(q, a, mu, sigma)}
+
+fit_exponential = fitdist(x, "exp")
+fit_normal = fitdist(x, "norm")
+fit_weibull = fitdist(x, "weibull")
+fit_gamma = fitdist(x, "gamma")
+fit_gumbel = fitdist(x, "gumbel", start = list(mu = mean(x), sigma = 0.1))
+fit_gompertz = fitdist(x, "gompertz", start = list(b = .1, eta = .1))
+fit_frechet = fitdist(x, "frechet", start = list(alpha = .1, sigma = .1))
+fit_genlogis = fitdist(x, "genlogis", start = list(a = 1, mu = mean(x), sigma = 0.1))
+
+
+xtable(round(cbind(
+  fit_genlogis$estimate,
+  fit_exponential$estimate,
+  fit_normal$estimate,
+  fit_weibull$estimate,
+  fit_gamma$estimate,
+  fit_gumbel$estimate,
+  fit_gompertz$estimate,
+  fit_frechet$estimate
+), 2))
+
+xtable(t(as.matrix(round(c(
+  fit_exponential$loglik,
+  fit_normal$loglik,
+  fit_weibull$loglik,
+  fit_gamma$loglik,
+  fit_gumbel$loglik,
+  fit_gompertz$loglik,
+  fit_frechet$loglik,
+  fit_genlogis$loglik
+), 2))))
+
+
+
+
+
+
+

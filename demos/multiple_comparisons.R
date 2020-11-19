@@ -46,7 +46,7 @@ ggplot(data.frame(test_number = 1 : m, ordered_pvals = ps_sorted, alpha_stepped_
   
 
 
-pacman::p_load(data.table)
+pacman::p_load(data.table, ggplot2)
 
 rm(list = ls())
 #https://zenodo.org/record/2396572#.X6NLm4hKiUk
@@ -90,28 +90,41 @@ X[, test_number := 1 : m]
 X[, simes_pvalue := test_number / m * FDR_0]
 max(which(X$pvalue < X$simes_pvalue))
 
-pacman::p_load(ggplot2)
 ggplot(X) + 
   geom_line(aes(x = test_number, y = pvalue)) + 
   xlim(1, 100000) + 
+  xlab("test number in pvalue increasing rank order") +
   scale_y_log10(limits = c(1E-15, 1)) +
   geom_hline(yintercept = FWER_0, col = "red") +
-  geom_hline(yintercept = alpha_bonferroni, col = "yellow") +
   geom_hline(yintercept = alpha_sidak, col = "gray") +
-  geom_line(aes(x = test_number, y = simes_pvalue), col = "green")
+  geom_hline(yintercept = alpha_bonferroni, col = "orange") +
+  geom_line(aes(x = test_number, y = simes_pvalue), col = "green") + 
+  annotate("text", label = "Bonferroni / Sidak thresholds", x = 25000, y = alpha_bonferroni*3, size = 4, colour = "orange") + 
+  annotate("text", label = "Naive threshold", x = 10000, y = FWER_0*3, size = 4, colour = "red") + 
+  annotate("text", label = "Sorted p values", x = 7000, y = 1e-12, size = 4, colour = "black") + 
+  annotate("text", label = "Simes threshold", x = 25000, y = 3e-3, size = 4, colour = "green") 
+  
+  
 
 #Isn't just doing naive give you FDR control?
 X[, naive_rejection := pvalue <= FDR_0]
 bins = 1000
 ggplot(X) + 
+  scale_y_log10() +
   geom_histogram(aes(x = pvalue, col = naive_rejection), bins = bins) +
   geom_hline(yintercept = m / bins, col = "purple")
 #no.... what is FDR doing?
-X[, simes_rejection := pvalue <= simes_pvalue]
-ggplot(X) + 
-  geom_histogram(aes(x = pvalue, col = simes_rejection), bins = bins) +
-  geom_hline(yintercept = m / bins, col = "purple")
 #it's essentially cutting out that piece that's expected if all H_0's are true
+# X[, simes_rejection := pvalue <= simes_pvalue]
+# ggplot(X) + 
+#   scale_y_log10() +
+#   geom_histogram(aes(x = pvalue, col = simes_rejection), bins = bins) +
+#   geom_hline(yintercept = m / bins, col = "purple")
+# ggplot(X) + 
+#   # scale_y_log10() +
+#   geom_histogram(aes(x = pvalue, col = simes_rejection), bins = bins) +
+#   geom_hline(yintercept = m / bins * FDR_0, col = "purple") +
+#   xlim(0, FDR_0)
 #see https://genomicsclass.github.io/book/pages/multiple_testing.html
 
 

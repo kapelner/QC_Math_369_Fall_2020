@@ -14,3 +14,16 @@ n = sum(counts)
 lik_rat_stat = 2 * (n * log(6) + sum(counts * log(counts / n)))
 lik_rat_stat
 qchisq(.95, 5)
+
+
+
+
+##Hw6 clinical trial example
+pacman::p_load(data.table,xtable)
+X = fread("../Dropbox/private_data/clinical_data_cleaned.csv")
+head(X)
+X[, V1 := NULL]
+reduced_model = lm(y ~ ., X)
+full_model = lm(y ~ . * tx, X)
+logLik(reduced_model)
+logLik(full_model)

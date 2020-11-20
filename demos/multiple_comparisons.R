@@ -98,11 +98,11 @@ ggplot(X) +
   geom_hline(yintercept = FWER_0, col = "red") +
   geom_hline(yintercept = alpha_sidak, col = "gray") +
   geom_hline(yintercept = alpha_bonferroni, col = "orange") +
-  geom_line(aes(x = test_number, y = simes_pvalue), col = "green") + 
-  annotate("text", label = "Bonferroni / Sidak thresholds", x = 25000, y = alpha_bonferroni*3, size = 4, colour = "orange") + 
-  annotate("text", label = "Naive threshold", x = 10000, y = FWER_0*3, size = 4, colour = "red") + 
-  annotate("text", label = "Sorted p values", x = 7000, y = 1e-12, size = 4, colour = "black") + 
-  annotate("text", label = "Simes threshold", x = 25000, y = 3e-3, size = 4, colour = "green") 
+  geom_line(aes(x = test_number, y = simes_pvalue), col = "green")
+  # annotate("text", label = "Bonferroni / Sidak thresholds", x = 25000, y = alpha_bonferroni*3, size = 4, colour = "orange") + 
+  # annotate("text", label = "Naive threshold", x = 10000, y = FWER_0*3, size = 4, colour = "red") + 
+  # annotate("text", label = "Sorted p values", x = 7000, y = 1e-12, size = 4, colour = "black") + 
+  # annotate("text", label = "Simes threshold", x = 25000, y = 3e-3, size = 4, colour = "green") 
   
   
 

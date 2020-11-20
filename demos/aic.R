@@ -117,8 +117,19 @@ xtable(t(as.matrix(round(c(
 ), 2))))
 
 
+#for hw6
+
+#sanity check:
+x_logis = rlogis(10000, location = 10, scale = 0.1)
+fit_logis = fitdist(x_logis, "logis", start = list(location = mean(x_logis), scale = 1))
+fit_logis
+fit_genlogis = fitdist(x_logis, "genlogis", start = list(a = 1, mu = mean(x_logis), sigma = 0.1))
+fit_genlogis
 
 
-
-
-
+fit_logis = fitdist(x, "logis", start = list(location = mean(x), scale = 1))
+fit_logis
+fit_genlogis = fitdist(x, "genlogis", start = list(a = 1, mu = mean(x), sigma = 0.1))
+fit_genlogis
+fit_logis$loglik
+fit_genlogis$loglik

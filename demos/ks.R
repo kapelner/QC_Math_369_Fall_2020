@@ -23,7 +23,9 @@ for (i in 1 : (length(xs) - 1)){
   fx[i] = (Fx[i + 1] - Fx[i]) / res
 }
 
-ggplot(data.frame(xs = xs, fx = fx, Fx = Fx)) + geom_line(aes(x = xs, y = fx))
+ggplot(data.frame(xs = xs, fx = fx, Fx = Fx)) + 
+  geom_line(aes(x = xs, y = fx)) +
+  xlab("k") + ylab("f_K(k)")
 
 
 #critical values

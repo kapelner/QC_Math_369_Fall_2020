@@ -94,3 +94,30 @@ QQQ_minus_SSPY_CI
 ggplot(data.frame(QQQ_minus_SPY_sharpe_est_b = QQQ_minus_SPY_sharpe_est_b, in_ci = QQQ_minus_SPY_sharpe_est_b >= QQQ_minus_SSPY_CI[1] & QQQ_minus_SPY_sharpe_est_b <= QQQ_minus_SSPY_CI[2])) +
   geom_histogram(aes(x = QQQ_minus_SPY_sharpe_est_b, col = in_ci, fill = in_ci), bins = num_bins) +
   geom_vline(xintercept = 0, col = "green")
+
+#hw
+rm(list = ls())
+xs = sort(c(1.09, 2.48, 3.08, 2.57, 1.04, 0.87, 4.18, 2.23, 3.22, 1.33, 2.49, 1.69, 3.18, 1.39, 2.52, 4.8, 2.44, 1.47, 2.64, 3.96, 3.08, 2.71, 2.8, 3.4, 3.86, 2.28, 3.65, 3.28, 1.54, 1.94))
+paste(xs, collapse = ", ")
+
+B = 1e5
+
+sample_median_bs = array(NA, B)
+for (b in 1 : B){
+  sample_median_bs[b] = median(sample(xs, replace = TRUE))
+}
+
+alpha = 0.05
+sample_median_CI = c(
+  quantile(sample_median_bs, alpha / 2), 
+  quantile(sample_median_bs, 1 - alpha / 2)
+)
+sample_median_CI
+2.57 - 1/sqrt(30)
+2.57 + 1/sqrt(30)
+
+
+ggplot(data.frame(sample_median_bs = sample_median_bs)) +
+  geom_histogram(aes(x = sample_median_bs), bins = B / 100) +
+  geom_vline(xintercept = median(xs), col = "green") +
+  xlab("boostrap distribution of sample medians")

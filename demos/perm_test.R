@@ -31,16 +31,42 @@ ret_region = c(
 ret_region
 xbar_MF_diff = mean(xM) - mean(xF)
 xbar_MF_diff
+ratio_xbar_MF_diff = mean(xM) / mean(xF)
+ratio_xbar_MF_diff
 
 ggplot(data.frame(xbar_MF_diff_perms = xbar_MF_diff_perms, in_ret = xbar_MF_diff_perms >= ret_region[1] & xbar_MF_diff_perms <= ret_region[2])) +
   geom_histogram(aes(x = xbar_MF_diff_perms, col = in_ret, fill = in_ret), bins = length(unique(xbar_MF_diff_perms))) +
   geom_vline(xintercept = xbar_MF_diff, col = "green")
+
+
+
+ggplot(data.frame(ratio_xbar_MF_diff_perms = ratio_xbar_MF_diff_perms)) +
+  geom_histogram(aes(x = xbar_MF_diff_perms), bins = length(unique(ratio_xbar_MF_diff_perms))) +
+  geom_vline(xintercept = ratio_xbar_MF_diff, col = "green") + xlab("ratio of averages under H_0")
 
 #pval
 min(
   ecdf(xbar_MF_diff_perms)(xbar_MF_diff),
   1 - ecdf(xbar_MF_diff_perms)(xbar_MF_diff)
   ) * 2
+
+
+
+#HW7 1
+ratio_xbar_MF_diff_perms = array(NA, B)
+x = c(xM, xF)
+for (b in 1 : B){
+  xM_perm = x[all_combinations[, b]]
+  xF_perm = x[setdiff(1 : n, all_combinations[, b])]
+  ratio_xbar_MF_diff_perms[b] = mean(xM_perm) / mean(xF_perm)
+}
+
+ratio_xbar_MF_diff = mean(xM) / mean(xF)
+ratio_xbar_MF_diff
+
+ggplot(data.frame(ratio_xbar_MF_diff_perms = ratio_xbar_MF_diff_perms)) +
+  geom_histogram(aes(x = xbar_MF_diff_perms), bins = length(unique(ratio_xbar_MF_diff_perms))) +
+  geom_vline(xintercept = ratio_xbar_MF_diff, col = "green") + xlab("ratio of averages under H_0")
 
 
 #another example

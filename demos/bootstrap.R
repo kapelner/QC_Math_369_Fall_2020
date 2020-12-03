@@ -16,6 +16,23 @@ QQQ[, prop_change := QQQ.Close / shift(QQQ.Close) - 1]
 SPY_prop_changes = na.omit(c(SPY[, .(prop_change)])[[1]])
 QQQ_prop_changes = na.omit(c(QQQ[, .(prop_change)])[[1]])
 
+
+#inference for the median return
+median_SPY_prop_change_est = median(SPY_prop_changes)
+median_SPY_prop_change_est
+
+#let's get a CI
+B = 50000
+median_SPY_prop_change_est_b = array(NA, B)
+for (b in 1 : B){
+  median_SPY_prop_change_est_b[b] = median(sample(SPY_prop_changes, replace = TRUE))
+}
+
+alpha = 0.05
+c(quantile(median_SPY_prop_change_est_b, alpha / 2), quantile(median_SPY_prop_change_est_b, 1 - alpha / 2))
+
+
+
 #estimate sharpe ratios for both
 r_free_rate = 0.008 / 365 #fluctuates daily but we'll call it about 0.8% yearly
 SPY_sharpe_est = (mean(SPY_prop_changes) - r_free_rate) / sd(SPY_prop_changes)
@@ -51,8 +68,8 @@ QQQ_CI = c(
   quantile(QQQ_sharpe_est_b, 1 - alpha / 2)
 )
 #and then check is 0 is included
-SPY_CI
-QQQ_CI
+SPY_CI * 252
+QQQ_CI * 252
 #We reject H_0 for both SPY and QQQ; we are reasonably confident that both the 
 #S&P500 and QQQ beat the risk free rate as zero is not inside both CI's.
 

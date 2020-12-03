@@ -6,8 +6,6 @@ xF = c(60,59,64,64,64,63)
 nM = length(xM)
 nF = length(xF)
 n = nM + nF
-xM
-xF
 
 
 #because there is n = nM + nF = 16 and nM = 10, 
@@ -38,7 +36,7 @@ ggplot(data.frame(xbar_MF_diff_perms = xbar_MF_diff_perms, in_ret = xbar_MF_diff
   geom_histogram(aes(x = xbar_MF_diff_perms, col = in_ret, fill = in_ret), bins = length(unique(xbar_MF_diff_perms))) +
   geom_vline(xintercept = xbar_MF_diff, col = "green")
 
-#pval#pvalue
+#pval
 min(
   ecdf(xbar_MF_diff_perms)(xbar_MF_diff),
   1 - ecdf(xbar_MF_diff_perms)(xbar_MF_diff)

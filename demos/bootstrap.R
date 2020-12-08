@@ -120,4 +120,4 @@ sample_median_CI
 ggplot(data.frame(sample_median_bs = sample_median_bs)) +
   geom_histogram(aes(x = sample_median_bs), bins = B / 100) +
   geom_vline(xintercept = median(xs), col = "green") +
-  xlab("boostrap distribution of sample medians")
+  xlab("boostrap distribution of sample median lifespan")

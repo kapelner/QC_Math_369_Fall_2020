@@ -172,4 +172,41 @@ Why does the bootstrap distribution appear discrete? Is the actual estimator's d
 \easysubproblem{Explain what an experimental study is. Mention how the responses are measured from the subjects. Are the assignments truly \emph{assigned}?}\spc{4}
 \end{enumerate}
 
+
+\problem{We will now talk about the Rubin Causal Model.}
+
+\begin{enumerate}
+
+\easysubproblem{What are potential outcomes? What is its notation we discussed in the lecture?}\spc{2}
+
+\easysubproblem{What is a subject-level (unit-level) causal effect? What is its formula using the notation discussed in (a)?}\spc{2}
+
+\end{enumerate}
+
+\problem{We will now talk about assumptions in the causal model.}
+
+\begin{enumerate}
+
+\easysubproblem{If the treatment effect $\theta$ is constant for all subjects (the same) and additive, express the potential outcome for subject $i$ in the treatment arm as a function of the potential outcome for subject $i$ in the control arm and $\theta$}\spc{1}
+
+\easysubproblem{Explain why $\ybarT - \ybarC$, the naive estimate for $\theta = \expe{Y_T} - \expe{Y_C}$, is not guaranteed to work. In your answer, define \emph{selection bias}.}\spc{4}
+
+\easysubproblem{If the confounder $x$ is linear in the response with scaling factor $\beta$ and so is an error term $e$, write formulas for both of the potential outcomes using the model in (a).}\spc{1}
+
+\easysubproblem{Under the model in (c), write the naive estimate $\ybarT - \ybarC$ as a function of $\xbar_T$, $\xbar_C$, $\bar{e}_T$, $\bar{e}_C$, $\beta$ and $\theta$.}\spc{1}
+
+\intermediatesubproblem{Explain why $\bar{e}_T - \bar{e}_C \approx 0$. State all assumptions.}\spc{3}
+
+\intermediatesubproblem{Explain why $\YbarT - \YbarC$ is a biased estimator for $\theta$. What is the bias term?}\spc{3}
+
+\extracreditsubproblem{Show that $\YbarT - \YbarC$ is unbiased (over all designs and errors) under the completely randomized design.}\spc{-0.5}
+
+\easysubproblem{What is the essential reason we use randomized experiments for causal inference?}\spc{2}
+
+\intermediatesubproblem{Explain why $\xbar_T - \xbar_C \approx 0$ in a completely randomized design.}\spc{3}
+
+\intermediatesubproblem{Why is it important to reduce the MSE of estimators for $\theta$?}\spc{1}
+
+\end{enumerate}
+
 \end{document}

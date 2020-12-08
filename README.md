@@ -6,8 +6,8 @@ This is the course homepage for Math 369 at Queens College, City University of N
 
 My lecture videos can be watched on slack and lecture notes are also scanned in as PDF files contributed by students and myself.
 
-<!--
-* Lecture 23 (video on slack) [(Prof)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec23kap.pdf) -->
+<!-- -->
+* Lecture 23 (video on slack) [(Prof)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec23kap.pdf)
 * Lecture 22 (video on slack) [(Christian Guaraca)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec22guaraca.pdf) [(Prof)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec22kap.pdf)
 * Lecture 21 (video on slack) [(Prof)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec21kap.pdf) 
 * Lecture 20 (video on slack) [(Michael Velez)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec20velez.pdf) [(Prof)](https://github.com/kapelner/QC_Math_369_Fall_2020/blob/master/lectures/lec20kap.pdf)

@@ -65,7 +65,7 @@ ratio_xbar_MF_diff = mean(xM) / mean(xF)
 ratio_xbar_MF_diff
 
 ggplot(data.frame(ratio_xbar_MF_diff_perms = ratio_xbar_MF_diff_perms)) +
-  geom_histogram(aes(x = xbar_MF_diff_perms), bins = length(unique(ratio_xbar_MF_diff_perms))) +
+  geom_histogram(aes(x = ratio_xbar_MF_diff_perms), bins = length(unique(ratio_xbar_MF_diff_perms))) +
   geom_vline(xintercept = ratio_xbar_MF_diff, col = "green") + xlab("ratio of averages under H_0")
 
 

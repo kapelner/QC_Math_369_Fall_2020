@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-\usepackage[margin=1.0in]{geometry}
+\usepackage[margin=1.04in]{geometry}
 \usepackage{hyperref}
 \usepackage{datetime}
 \usepackage[auth-sc,affil-sl]{authblk}
@@ -51,7 +51,8 @@ Course Homepage & \href{https://github.com/kapelner/QC_Math_369_Fall_2020}{https
 
 \section*{Course Overview}
 
-MATH 369 is an introduction to the intermediate concepts of mathematical statistics, statistical inference, theory of experimentation, causality and possibly observational studies. This is the first time teaching the course, so I'm not sure how much I will get through. Topics that may be covered (not in order of coverage):
+MATH 369 is an introduction to the intermediate concepts of mathematical statistics, statistical inference and theory of experimentation. Main topics are listed below:
+
 
 \begin{itemize}
 \itemsep -0.0em 
@@ -60,13 +61,13 @@ MATH 369 is an introduction to the intermediate concepts of mathematical statist
 \item Data generating processes, parameters, estimators, estimates, samples, population 
 \item Point parameter estimators and estimates: loss, risk, bias-variance decomposition
 \item Likelihood, log-likelihood, score function
-\item Un/biased estimators and asymptotically unbiased estimators, consistent estimator, 
+\item Un/biased estimators and asymptotically unbiased estimators, consistent estimator
 \item Method of Moments (MM), Maximum likelihood estimator (MLE)
 \item Cramer-Rao Lower Bound, Fisher information, UMVUEs
 \item Asymptotical normality and efficiency of MLE's, uni/multivariate delta methods
-\item Identifiability
+%\item Identifiability
 \item The Empirical CDF estimator
-\item Sufficient statistics %, Rao-Blackwell Theorem?, the exponential family?, \qu{natural} sufficient statistics?
+%\item Sufficient statistics %, Rao-Blackwell Theorem?, the exponential family?, \qu{natural} sufficient statistics?
 \item The non-parametric bootstrap
 \end{itemize}
 \item Testing
@@ -87,11 +88,10 @@ MATH 369 is an introduction to the intermediate concepts of mathematical statist
 \end{itemize}
 \item Experimentation and Causality
 \begin{itemize}
-\item Casual inference: counterfactuals, Neyman-Rubin model
-\item Randomization and Design of Experiments
-\item Population vs. randomization model
-\item Randomization test
-\item Confounding, Simpson's Paradox, Observational Studies?
+\item Casual inference vs statistical inference
+\item Neyman-Rubin model, the counterfactual
+\item Observational study, confounding variable, biased causal estimation
+\item Experimentation, completely randomized experiment, unbiased causal estimation
 \end{itemize}
 \item Model Selection
 \begin{itemize}
@@ -100,6 +100,67 @@ MATH 369 is an introduction to the intermediate concepts of mathematical statist
 \item Akaike weights / scores
 \end{itemize}
 \end{itemize}
+
+Individual lectures' topics with time estimates are below:
+
+\begin{enumerate}
+\item[Lec 1] [20min] Surveys, populations, sampling, sample size $n$, representativeness, SRS; [30min] definition of parameter, parameter space, inference, statistic, the three goals of statistical inference: point estimation, theory testing and confidence set construction. 
+
+\item[Lec 2] [20min] Sampling with/without replacement, iid assumption, equivalence of populations and data generating processes (DGPs); [55min] estimators, point estimation metrics: biasedness and unbiasedness, loss functions (absolute, squared error, others), risk function, mean squared error (MSE), bias-variance decomposition of MSE, maximum risk for iid Bernoulli model
+
+\item[Lec 3] [35min] Introduction to hypothesis testing, the intellectual honesty of assuming the null hypothesis $H_0$, the theory you wish to prove $H_a$, right, left and two-sided tests of single parameters, test statistics; [30min] the Binomial exact test of one proportion in the iid Bernoulli DGP, retainment region (RET), rejection rejection, statistical significance; [10min] Type I error, $\alpha$, Type II error, $2 \times 2$ confusion table of testing errors.
+
+\item[Lec 4] [10min] review of central limit theorem (CLT); [20min] employing the CLT to create the approximate one-proportion z-test; [20min] Fisher's p-value; [25min] Definition of power, assuming an $H_a$ to compute the probability of Type II errors and power
+
+\item[Lec 5] [15min] The power function for a one-sided z-test; [15min] the iid normal DGP; [15min] exact one-sample z-test with known variance, its power function; [30min] the naive estimator for $\sigma^2$, proof of its biasedness, definition of asymptotic unbiasedness, Bessel's correction and the unbiased sample variance estimator $S^2$
+
+\item[Lec 6] [20min] motivation of the t statistic, Student's t distribution, the one-sample t-test; [20min] the concept of two populations, two sample testing for mean differences, $H_0$ specification for left-sided, right-sided, two sided tests; [15min] the exact two-sample z-test under different variances and shared variance; [20min] the exact two-sample t-test under shared variance, the pooled standard deviation estimator
+
+\item[Lec 7] [25min] the approximate t-test (Welch-Satterthwaite approximation) under different variances, the Behrens-Fisher distribution; [5min] review of moments, definition of sample moments; [15min] the system of equations yielding the method of moments estimators (MME); [10min] MME for the expectation, MME for the variance; [20min] MME for the two parameters in the iid Binomial DGP, nonsensical MME values
+
+\item[Lec 8] [10min] MME for the iid Uniform DGP with one unknown endpoint parameter; [10min] definition of likelihood, the equivalence of the likelihood function with the JDF/JMF; [10min] definition of argmax, equivalence of argmax under strictly increasing functions; [10min] definition of maximum likelihood estimators (MLE) and estimates, the log likelihood; [10min] MLE for the iid Bernoulli DGP; [10min] MLEs for the iid Normal DGP; [10min] MLE for iid Uniform DGP with one unknown endpoint parameter; [5min] variances of MME and MLE for that cases
+
+%85min
+\item[Lec 9] [5min] definition of relative efficiency and comparison of two estimators; [10min] the nonexistence of a minimum MSE estimator; [5min] definition of uniformly minimum variance unbiased estimators (UMVUEs); [10min] definition of the Cramer-Rao Lower Bound (CRLB), definition of Fisher Information; [55min] proof of the CRLB, definition of the score function, expectation of the score function is zero,  
+
+%65min
+\item[Lec 10] [10min] proof that the sample average is the UMVUE for the iid Bernoulli DGP; [15min] proof that the sample average is the UMVUE for the iid normal DGP; [10min] definition of asymptotically normal estimators; [15min] definition of consistent estimators, continuous mapping theorem, Slutsky's theorem; [10min] asymptotic normality of asymptotically normal estimators when using the estimator for its standard error; [5min] statement of main theorem for MMEs and MLEs: consistency, asymptotic normality, asymptotic efficience of the MLE
+
+%85min
+\item[Lec 11]  [5min] review of Taylor series; [40min] proof that the MLE is asymptotically normal and asmyptotically efficient; [5min] definition of the Wald test, the one-proportion z-test as a Wald test; [35min] the two-proportion z-test as a Wald test, the pooled proportion estimator
+
+%65min
+\item[Lec 12] [5min] the one-sample t-test as an approximate one-sample z-test (Wald test); [10min] the approximate two-sample t-test as an approximate two-sample z-test (Wald test); [15min] derivation of the MLE, Fisher Information and a Wald test for the iid Gumbel DGP with known scale parameter; [15min] introduction to confidence sets, interval estimators, coverage probability; [20min] definition of the confidence interval (CI), CI construction via hypothesis test inversion
+
+\item[Lec 13] [10min] comparison of hypothesis testing with CI construction; [15min] approximate CIs for the iid normal DGP under the four assumptions; [10min] CI for one proportion; [15min] CI for the difference of two proportions; [10min] CIs for MLEs; [15min] proof that MSE improvements improve all three statistical inference goals, illustration of all three goals
+
+\item[Lec 14] [10min] meaninglessness of single inferences; [5min] odds-against reparameterization, odds-against point estimation; [15min] univariate delta method; [10min] CI for odds-against via delta method, CI for log-mean; [10min] risk ratio versus proportion difference; [20min] multivariate delta method; [5min] CI for the risk ratio
+
+%80min
+\item[Lec 15] [10min] equivalence of the two-sided z and $\chi^2$ tests, equivalence of the two-sided t and F tests; shape of the $\chi^2$ and F distributions; [30min] $\chi^2$ goodness of fit test for multinomial parameters, its $H_0$ and $H_a$, observed and expected counts, the test statistic; [40min] the $\chi^2$ test of independence among two categorical variables, its $H_0$ and $H_a$, observed and expected counts, the test statistic
+
+%70min
+\item[Lec 16] [35min] concept of assuming DGP models, discussion of what models are, discussion of many model candidates; [15min] model selection via largest likelihood, asymptotic bias of the log-likelihood estimator with substituted MLEs; [15min] the AIC metric, AIC model selection algorithm, penalizing complexity; [5min] the AICC metric
+
+\item[Lec 17] [5min] Akaike weights; [25min] statistical signifiance vs. clinical / practical significance of the effect; [5min] review of Type I/II errors; [40min] the multiple hypothesis testing / comparison problem, the $2 \times 2$ frequency table of test results, false discoveries,  
+
+\item[Lec 18] [10min] definition of familywise error rate (FWER), weak FWER control; [10min] Bonferroni procedure; [15min] Sidak procedure; [25min] Simes procedure; [15min] definition of false discovery proportion, false discovery rate (FDR), setting for equivalence of FWER and FDR, statement that the Simes procedure provides strong control of the FDR
+
+\item[Lec 19] [10min] proof that p-values are uniformly distributed under $H_0$; [50min] derivation of the score test as a Wald test, the score test statistic for the logistic distribution with known scale parameter; [15min] definition of likelihood ratio (LR) test statistic, statement of its asymptotic convergence to a $\chi^2_1$, LR test (LRT) derivation of the LR statistic for the iid Bernoulli DGP
+
+\item[Lec 20] [25min] Proof of the asymptotic convergence of the LR test statistic; [50min] generalized likelihood ratio test for reduced models nested in a full model, statement of asymptotic convergence to a $\chi^2$ with degrees of freedom equal to the difference of number of parameters, demonstration that it differs from the goodness of fit test, demonstration in the normal iid DGP
+
+%70min
+\item[Lec 21] [10min] visualizing the Wald, score and LR tests; [5min] testing entire DGPs; [10min] definition and illustration of the empirical CDF; [20min] one-sample Kolmogorov-Smirnov (KS) test, statement of Kolmogorov distribution and its critical values; [10min] tests of DGP equivalence among two populations; [15min] two-sample KS test
+
+%75min
+\item[Lec 22] [45min] two-sample permutation test, partitioning the master population, dsicussion of possible test statistics, computational construction of its RET via resampling; [30min] the nonparametric bootstrap procedure, typical use cases, approximate CI construction, approximate hypothesis testing
+
+%80min
+\item[Lec 23] [20min] causal inference vs statistical inference, counfounding variable, an illustration of one scenario with confounding and one scenario without confounding; [15min] definition of a two-arm treatment vs control experiment, definition of assignment / allocation / manipulation; [10min] the Rubin causal model, counterfactuals, additive treatment effect, selection bias inducing bias in the naive treatment estimator; [15min] response model linear in confounder and noise, noise as an approximate normal realization, the explicit bias term and its explanation; [20min] randomized experiments, bernoulli trial design, completely randomized trial design, statment that causal estimates are unbiased over errors and randomized assignments, statement that bias is small in any random assignment
+
+\end{enumerate}
+
 
 \textbf{This is more of a typical mathematics theory course than the rest of the data science series but it is still not like the other math courses you're used to; it will be more philosophical and very high in conceptual density while the mathematics itself is kept deliberately simple.} But we will still attempt to keep our eye on developing ideas and concepts for helping to make decisions in the real world. Thus we may make limited use of computation using the \texttt{R} statistical language.
 
@@ -114,7 +175,7 @@ You are the students taking this course as part of a masters degree. Thus, there
 
 \section*{Course Materials}
 
-\paragraph{Textbook:} I will be referencing Larry Wasserman's \emph{All of Statistics: A concise course in statistical inference} which can be purchased on \href{https://www.amazon.com/dp/0387402721}{Amazon} and Casella and Berger's \emph{Statistical Inference} which can be purchased on \href{https://www.amazon.com/dp/8131503941}{Amazon}. There is no excuse not to have these books. They are \textit{required}. However, I will not ususally be teaching \qu{from the book} --- most of the material in the class comes from the lecture notes. The textbooks are a way to get ``another take'' on the material and they will only cover about only half of the material done in class. For the other half, you will have to make use of other resources. I also recommend Rice's \emph{Mathematical Statistics and Data Analysis}, 3rd edition which can be purchased on \href{https://www.amazon.com/dp/0534399428}{Amazon} as well. 
+\paragraph{Textbook:} I will be referencing Larry Wasserman's \emph{All of Statistics: A concise course in statistical inference} which can be purchased on \href{https://www.amazon.com/dp/0387402721}{Amazon} and Casella and Berger's \emph{Statistical Inference} which can be purchased on \href{https://www.amazon.com/dp/8131503941}{Amazon}. There is no excuse not to have these books. They are \textit{required}. However, I will not ususally be teaching \qu{from the book} --- most of the material in the class comes from the lecture notes. The textbooks are a way to get ``another take'' on the material and they will only cover about only half of the material done in class. For the other half, you will have to make use of other resources. I also recommend Rice's \emph{Mathematical Statistics and Data Analysis}, 3rd edition which can be purchased on \href{https://www.amazon.com/dp/0534399428}{Amazon} as well but I will not reference it during class.
 
 \paragraph{Computer Software:} During lectures, there will be demoes using \texttt{R} which is a free, open source statistical programming language and console. You can download it from: \url{http://cran.mirrors.hoobly.com/}. I do not expect you to do \textit{any} programming. If \texttt{R} will be part of the homework, I will give you the code to run and expect you to interpret the results based on concepts explained during the course.
 
